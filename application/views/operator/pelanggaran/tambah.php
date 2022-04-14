@@ -6,8 +6,7 @@
     				<p style="color: black"><?= $title?></p>
                 </div>
             </div>
-            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                     
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">       
             </div>
         </div>
         <?php
@@ -33,8 +32,11 @@
                   <label class="col-md-2 col-form-label" style="color: black">Sanksi</label>
                     <div class="col-md-10 p-0 text-center">
                       <select name="sanksi" class="form-control" id="single-select">
-                          <option value=""></option>
-                          option
+                          <option value="" style="color: black">--Pilih Sanksi--</option>
+                          <option value="sp1" style="color: black">SP 1</option>
+                          <option value="sp2" style="color: black">SP 2</option>
+                          <option value="sp3" style="color: black">SP 3</option>
+                          <option value="Tertulis" style="color: black">Tertulis</option>
                       </select>
                     </div>
                 </div>

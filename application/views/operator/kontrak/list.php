@@ -1,5 +1,6 @@
  <div class="content-body">
             <div class="container-fluid">
+                <?php if($this->uri->segment(3) == "") { ?>
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
@@ -13,7 +14,7 @@
                         </ol>
                     </div>
                 </div>
-
+                <?php }?>
                 <div class="row">
                      <div class="col-12">
                         <div class="card">
@@ -27,7 +28,10 @@
                                 echo $this->session->flashdata('success');
                                 echo '</div>';
                             }
-                        ?>   
+                        ?>  
+                         <div class="card-header">
+                    
+                        </div> 
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="example" class="display" style="min-width: 845px">
@@ -35,23 +39,40 @@
                                             <tr style="text-align: center">
                                                 <th>NIK</th>
                                                 <th>Nama</th>
-                                                <th>KT 1</th>
-                                                <th>KT 2</th>
-                                                <th>KT 1</th>
-                                                <th>KT 2</th>
-                                                <th width="10%">Aksi</th>
+                                                <th>Tanggal Join</th>
+                                                <th>Kontrak 1</th>
+                                                <th>Kontrak 2</th>
+                                                <th>Kontrak 1</th>
+                                                <th>Kontrak 2</th>
+                                                <?php if($this->uri->segment(3) == "") { ?>
+                                                <th width="10%"> Aksi</th>
+                                                <?php }?>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php $i=1; foreach($kontrak as $user ) { ?> 
                                             <tr>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                            </tr>   
+                                                <th style="color: black; text-align: center"><?= $user->nik?></th>
+                                                <th style="color: black; text-align: center"><?= $user->nama?></th>
+                                                <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->tgl_join))?></th>
+                                                <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt1))?></th>
+                                                <?php if(($user->kt2==null && $user->kt1_1==null && $user->kt2_1==null )) {?>
+                                                <th style="color: black; text-align: center">-</th>
+                                                <th style="color: black; text-align: center">-</th>
+                                                <th style="color: black; text-align: center">-</th>
+                                                <?php }else{?>
+                                                <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2))?></th>
+                                                <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt1_1))?></th>
+                                                <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2_1))?></th>
+                                                <?php }?>
+                                                <?php if($this->uri->segment(3) == "") { ?>
+                                                <th>
+                                                    <a href="<?php echo base_url('operator/kontrak/edit/'.$user->id_kontrak)?>" class="btn btn-secondary btn-sm"><i class="fa fa-edit"></i></a>
+                                                    <?php include('delete.php')?>
+                                                </th>
+                                                <?php }?>
+                                            </tr>
+                                             <?php $i++;} ?>
                                         </tbody>
                                     </table>
                                 </div>

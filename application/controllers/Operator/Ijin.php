@@ -54,7 +54,8 @@ class Ijin extends CI_Controller {
 		} else {
 			$i = $this->input;
 			$data = array('id_karyawan'  	=> $id_karyawan,
-						  'tgl_ijin'		=> date('d-m-y', strtotime($i->post('tgl_ijin'))),
+						  'id_user'			=> $this->session->userdata('id_user'),
+						  'tgl_ijin'		=> date('Y-m-d', strtotime($i->post('tgl_ijin'))),
 						  'jenis_ijin'		=> $i->post('jenis_ijin'),
 						  'jam_awal' 		=> date('H:i:s', strtotime($i->post('jam_awal'))),
 						  'jam_akhir' 		=> date('H:i:s', strtotime($i->post('jam_akhir'))),
@@ -89,6 +90,7 @@ class Ijin extends CI_Controller {
 			$i = $this->input;
 			$data = array('id_ijin'			=> $id_ijin,
 						  'id_karyawan'  	=> $id_karyawan,
+						  'id_user'			=> $this->session->userdata('id_user'),
 						  'tgl_ijin'		=> $i->post('tgl_ijin'),
 						  'jenis_ijin'		=> $i->post('jenis_ijin'),
 						  'jam_awal' 		=> $i->post('jam_awal'),

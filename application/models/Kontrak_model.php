@@ -13,7 +13,8 @@ class Kontrak_model extends CI_Model {
 		$this->db->select('tbl_kontrak.*,
 						 tbl_karyawan.nik,
 						 tbl_karyawan.nama,
-						 tbl_karyawan.jabatan');
+						 tbl_karyawan.jabatan,
+						 tbl_karyawan.tgl_join');
 		$this->db->from('tbl_kontrak');
 		$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_kontrak.id_karyawan');
 		$this->db->order_by('id_karyawan','ASC');

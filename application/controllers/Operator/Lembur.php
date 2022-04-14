@@ -50,8 +50,9 @@ class Lembur extends CI_Controller {
 		} else {
 			$i = $this->input;
 			$data = array('id_karyawan'  	=> $id_karyawan,
+						  'id_user'			=> $this->session->userdata('id_user'),
 						  'waktu'			=> $i->post('waktu'),
-						  'tanggal'			=> date('d-m-y', strtotime($i->post('tanggal'))),
+						  'tanggal'			=> date('Y-m-d', strtotime($i->post('tanggal'))),
 						  'jam_awal' 		=> date('H:i:s', strtotime($i->post('jam_awal'))),
 						  'jam_akhir' 		=> date('H:i:s', strtotime($i->post('jam_akhir'))),
 						  'keterangan'		=> $i->post('keterangan')
@@ -85,6 +86,7 @@ class Lembur extends CI_Controller {
 			$i = $this->input;
 			$data = array('id_lembur'		=> $id_lembur,
 						  'id_karyawan'  	=> $id_karyawan,
+						  'id_user'			=> $this->session->userdata('id_user'),
 						  'tanggal'			=> $i->post('tanggal'),
 						  'waktu'			=> $i->post('waktu'),
 						  'jam_awal' 		=> $i->post('jam_awal'),

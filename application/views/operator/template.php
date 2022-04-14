@@ -17,6 +17,10 @@
      <!-- Datatable -->
     <link href="<?= base_url()?>assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
 
+     <!-- Pick date -->
+    <link rel="stylesheet" href="<?= base_url()?>assets/vendor/pickadate/themes/default.css">
+    <link rel="stylesheet" href="<?= base_url()?>assets/vendor/pickadate/themes/default.date.css">
+
 </head>
 
 <body>
@@ -113,7 +117,7 @@
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/karyawan')?>">Data Karyawan</a></li>
                             <li><a href="<?= base_url('operator/karyawan/tambah')?>">Tambah Data</a></li>
-                            <li><a href="#">Laporan</a></li>
+                            <li><a href="<?= base_url('operator/karyawan/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -121,7 +125,7 @@
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/kontrak')?>">Data Kontrak Karyawan</a></li>
                             <li><a href="<?= base_url('operator/kontrak/list_karyawan')?>">Tambah Data</a></li>
-                            <li><a href="#">Laporan</a></li>
+                            <li><a href="<?= base_url('operator/kontrak/list_karyawan')?>">Laporan</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -130,6 +134,7 @@
                             <li><a href="<?= base_url('operator/cuti')?>">Data Cuti</a></li>
                             <li><a href="<?= base_url('operator/cuti/list')?>">Tambah Data</a></li>
                             <li><a href="#">Laporan</a></li>
+                            <li><a href="#">Setting</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -171,6 +176,7 @@
                             <li><a href="<?= base_url('operator/cuti')?>">Data Cuti</a></li>
                             <li><a href="<?= base_url('operator/cuti/list')?>">Tambah Data</a></li>
                             <li><a href="#">Laporan</a></li>
+                            <li><a href="#">Setting</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -216,8 +222,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Quixkit</a> 2019</p>
-                <p>Distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a></p>
+                <p style="color: black">Copyright © <a href="https://www.semarangherbal.co.id/">Semarang Herbal Indoplant</a> 2022</p>
             </div>
         </div>
         <!--**********************************
@@ -263,6 +268,36 @@
     <!-- Select2 -->
     <script src="<?= base_url()?>assets/vendor/select2/js/select2.full.min.js"></script>
     <script src="<?= base_url()?>assets/js/plugins-init/select2-init.js"></script>
+
+     <!-- Daterangepicker -->
+    <!-- momment js is must -->
+    <script src="<?= base_url()?>assets/vendor/moment/moment.min.js"></script>
+    <script src="<?= base_url()?>assets/vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- clockpicker -->
+    <script src="<?= base_url()?>assets/vendor/clockpicker/js/bootstrap-clockpicker.min.js"></script>
+    <!-- asColorPicker -->
+    <script src="<?= base_url()?>assets/vendor/jquery-asColor/jquery-asColor.min.js"></script>
+    <script src="<?= base_url()?>assets/vendor/jquery-asGradient/jquery-asGradient.min.js"></script>
+    <script src="<?= base_url()?>assets/vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js"></script>
+    <!-- Material color picker -->
+    <script src="<?= base_url()?>assets/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <!-- pickdate -->
+    <script src="<?= base_url()?>assets/vendor/pickadate/picker.js"></script>
+    <script src="<?= base_url()?>assets/vendor/pickadate/picker.time.js"></script>
+    <script src="<?= base_url()?>assets/vendor/pickadate/picker.date.js"></script>
+
+
+
+    <!-- Daterangepicker -->
+    <script src="<?= base_url()?>assets/js/plugins-init/bs-daterange-picker-init.js"></script>
+    <!-- Clockpicker init -->
+    <script src="<?= base_url()?>assets/js/plugins-init/clock-picker-init.js"></script>
+    <!-- asColorPicker init -->
+    <script src="<?= base_url()?>assets/js/plugins-init/jquery-asColorPicker.init.js"></script>
+    <!-- Material color picker init -->
+    <script src="<?= base_url()?>assets/js/plugins-init/material-date-picker-init.js"></script>
+    <!-- Pickdate -->
+    <script src="<?= base_url()?>assets/js/plugins-init/pickadate-init.js"></script>
 
     <script>
      window.setTimeout(function() {

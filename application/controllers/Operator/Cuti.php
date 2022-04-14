@@ -54,8 +54,9 @@ class Cuti extends CI_Controller {
 		} else {
 			$i = $this->input;
 			$data = array('id_karyawan'  	=> $id_karyawan,
-						  'tgl_awal' 		=> date('d-m-y', strtotime($i->post('tgl_awal'))),
-						  'tgl_akhir' 		=> date('d-m-y', strtotime($i->post('tgl_akhir'))),
+						  'id_user'			=> $this->session->userdata('id_user'),
+						  'tgl_awal' 		=> date('Y-m-d', strtotime($i->post('tgl_awal'))),
+						  'tgl_akhir' 		=> date('Y-m-d', strtotime($i->post('tgl_akhir'))),
 						  'jml_hari'		=> $i->post('jml_hari'),
 						  'keterangan'		=> $i->post('keterangan')  
 					);
@@ -86,6 +87,7 @@ class Cuti extends CI_Controller {
 			$i = $this->input;
 			$data = array('id_cuti'			=> $id_cuti,
 						  'id_karyawan'  	=> $id_karyawan,
+						  'id_user'			=> $this->session->userdata('id_user'),
 						  'tgl_awal' 		=> $i->post('tgl_awal'),
 						  'tgl_akhir' 		=> $i->post('tgl_akhir'),
 						  'jml_hari'		=> $i->post('jml_hari'),

@@ -33,7 +33,7 @@ class Pelanggaran extends CI_Controller {
 	public function add($id_karyawan){
 		$karyawan 	 = $this->Karyawan_model->detail($id_karyawan);
 		$pelanggaran = $this->Pelanggaran_model->pilih($id_karyawan);
-		$jml		= $this->Pelanggaran_model->jumlahPelanggaran($id_karyawan);
+		$jml		 = $this->Pelanggaran_model->jumlahPelanggaran($id_karyawan);
 
 		$valid = $this->form_validation;
 		$valid->set_rules('sanksi','Sanksi','required', array('required'  => 'Sanksi harus di isi' ));
@@ -50,7 +50,8 @@ class Pelanggaran extends CI_Controller {
 		} else {
 			$i = $this->input;
 			$data = array('id_karyawan'  	=> $id_karyawan,
-						  'tgl_pelanggaran' 		=> date('d-m-y', strtotime($i->post('tgl_pelanggaran'))),
+						  'id_user'			=> $this->session->userdata('id_user'),
+						  'tgl_pelanggaran' => date('Y-m-d', strtotime($i->post('tgl_pelanggaran'))),
 						  'keterangan'		=> $i->post('keterangan'),
 						  'sanksi'			=> $i->post('sanksi')
 					);
@@ -83,6 +84,7 @@ class Pelanggaran extends CI_Controller {
 			$i = $this->input;
 			$data = array('id_pelanggaran'	=> $id_pelanggaran,
 						  'id_karyawan'  	=> $id_karyawan,
+						  'id_user'			=> $this->session->userdata('id_user'),
 						  'tgl_pelanggaran' => $i->post('tgl_pelanggaran'),
 						  'keterangan'		=> $i->post('keterangan'),
 						  'sanksi'			=> $i->post('sanksi')

@@ -62,8 +62,12 @@ class Karyawan_model extends CI_Model {
         }
     }
 
-    public function getDataKaryawan()
+    public function getDataKaryawan($tglawal = null, $tglakhir = null)
     {
+      	if($tglawal && $tglakhir){
+    		$this->db->where('tgl_join >', $tglawal);
+    		$this->db->where('tgl_join <', $tglakhir);
+    	}
         return $this->db->get('tbl_karyawan')->result_array();
     }
 

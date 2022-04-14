@@ -61,7 +61,7 @@
                                               <!--Form Group Jenis Kelamin-->
                                                <div class="form-group">
                                                   <label style="color: black">Jenis Kelamin<small style="color: red">*</small></label>
-                                                  <select id="single-select" name="jekel" class="form-control select2" style="width: 100%;" required>
+                                                  <select  name="jekel" class="form-control select2" style="width: 100%;" required>
                                                     <option>--Pilih Jenis Kelamin--</option>
                                                     <option value="Laki-laki">Laki-laki</option>
                                                     <option value="Perempuan">Perempuan</option>
@@ -70,7 +70,7 @@
                                               <!-- /.form-group Agama -->
                                               <div class="form-group">
                                                   <label style="color: black">Agama<small style="color: red">*</small></label>
-                                                  <select id="single-select" name="agama" class="form-control select2" style="width: 100%;" required>
+                                                  <select  name="agama" class="form-control select2" style="width: 100%;" required>
                                                     <option>--Pilih Data Agama--</option>
                                                     <option value="Islam">Islam</option>
                                                     <option value="Kristen">Kristen</option>

@@ -27,12 +27,10 @@
                                        if ($this->session->flashdata('alert')) {
                                               echo '<div class="alert alert-danger alert-dismissible fade show"> ';
                                               echo $this->session->flashdata('alert');
-                                              echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
                                               echo '</div>';
                                             } else if($this->session->flashdata('success')){
                                               echo '<div class="alert alert-success alert-dismissible fade show"> ';
                                               echo $this->session->flashdata('success');
-                                              echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
                                               echo '</div>';
                                             }
                                      ?>  

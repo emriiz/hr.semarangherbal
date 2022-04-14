@@ -29,6 +29,7 @@ class Karyawan extends CI_Controller {
 
     public function tambah()
     {
+        $id_user = $this->session->userdata('id_user');
         $data = array('title' => 'Tambah Data Karyawan');
         $valid = $this->form_validation;
 
@@ -68,7 +69,7 @@ class Karyawan extends CI_Controller {
                         $this->image_lib->resize();
 
                         $i = $this->input;
-                        $data = array(
+                        $data = array('id_user'         => $id_user,
                                       'nik'             => htmlspecialchars($i->post('nik', TRUE)),
                                       'nama'            => htmlspecialchars($i->post('nama', TRUE)),
                                       'foto'            => $upload_data['uploads']['file_name'],
@@ -78,9 +79,9 @@ class Karyawan extends CI_Controller {
                                       'jekel'           => $i->post('jekel'),
                                       'agama'           => $i->post('agama'),
                                       'pendidikan'      => $i->post('pendidikan'),
-                                      'tgl_join'        => date('d-m-y', strtotime($i->post('tgl_join'))),
-                                      'tgl_tetap'       => date('d-m-y', strtotime($i->post('tgl_tetap'))),
-                                      'tgl_resign'      => date('d-m-y', strtotime($i->post('tgl_resign'))),
+                                      'tgl_join'        => date('Y-m-d', strtotime($i->post('tgl_join'))),
+                                      'tgl_tetap'       => date('Y-m-d', strtotime($i->post('tgl_tetap'))),
+                                      'tgl_resign'      => date('Y-m-d', strtotime($i->post('tgl_resign'))),
                                       'departemen'      => $i->post('departemen'),
                                       'jabatan'         => $i->post('jabatan'),
                                       'level'           => $i->post('level'),
@@ -108,18 +109,18 @@ class Karyawan extends CI_Controller {
                 }
             }else{
                 $i = $this->input;
-                        $data = array(
+                        $data = array('id_user'         => $id_user,
                                       'nik'             => htmlspecialchars($i->post('nik', TRUE)),
                                       'nama'            => htmlspecialchars($i->post('nama', TRUE)),
                                       'tmpt_lahir'      => $i->post('tmpt_lahir'),
-                                      'tgl_lahir'       => date('d-m-y', strtotime($i->post('tgl_lahir'))),
+                                      'tgl_lahir'       => date('Y-m-d', strtotime($i->post('tgl_lahir'))),
                                       'umur'            => $i->post('umur'),
                                       'jekel'           => $i->post('jekel'),
                                       'agama'           => $i->post('agama'),
                                       'pendidikan'      => $i->post('pendidikan'),
-                                      'tgl_join'        => date('d-m-y', strtotime($i->post('tgl_join'))),
-                                      'tgl_tetap'       => date('d-m-y', strtotime($i->post('tgl_tetap'))),
-                                      'tgl_resign'      => date('d-m-y', strtotime($i->post('tgl_resign'))),
+                                      'tgl_join'        => date('Y-m-d', strtotime($i->post('tgl_join'))),
+                                      'tgl_tetap'       => date('Y-m-d', strtotime($i->post('tgl_tetap'))),
+                                      'tgl_resign'      => date('Y-m-d', strtotime($i->post('tgl_resign'))),
                                       'departemen'      => $i->post('departemen'),
                                       'jabatan'         => $i->post('jabatan'),
                                       'level'           => $i->post('level'),
@@ -151,6 +152,7 @@ class Karyawan extends CI_Controller {
     }
 
 	public function edit($id_karyawan){
+        $id_user = $this->session->userdata('id_user');
         $karyawan = $this->Karyawan_model->detail($id_karyawan);
 
         $valid = $this->form_validation;
@@ -192,12 +194,12 @@ class Karyawan extends CI_Controller {
 
                         $i = $this->input;
                         $data = array('id_karyawan'     => $id_karyawan,
-                                      // 'id_user'          => $this->session->userdata('id_user'),
+                                      'id_user'         => $id_user,
                                       'nik'             => htmlspecialchars($i->post('nik', TRUE)),
                                       'nama'            => htmlspecialchars($i->post('nama', TRUE)),
                                       'foto'            => $upload_data['uploads']['file_name'],
                                       'tmpt_lahir'      => $i->post('tmpt_lahir'),
-                                      'tgl_lahir'       => date('d-m-y', strtotime($i->post('tgl_lahir'))),
+                                      'tgl_lahir'       => date('Y-m-d', strtotime($i->post('tgl_lahir'))),
                                       'umur'            => $i->post('umur'),
                                       'jekel'           => $i->post('jekel'),
                                       'agama'           => $i->post('agama'),
@@ -233,11 +235,11 @@ class Karyawan extends CI_Controller {
             }else{
                 $i = $this->input;
                         $data = array('id_karyawan'     => $id_karyawan,
-                                      // 'id_user'          => $this->session->userdata('id_user'),
+                                     'id_user'          => $id_user,
                                       'nik'             => htmlspecialchars($i->post('nik', TRUE)),
                                       'nama'            => htmlspecialchars($i->post('nama', TRUE)),
                                       'tmpt_lahir'      => $i->post('tmpt_lahir'),
-                                     'tgl_lahir'        => date('d-m-y', strtotime($i->post('tgl_lahir'))),
+                                      'tgl_lahir'        => date('Y-m-d', strtotime($i->post('tgl_lahir'))),
                                       'umur'            => $i->post('umur'),
                                       'jekel'           => $i->post('jekel'),
                                       'agama'           => $i->post('agama'),
@@ -277,15 +279,6 @@ class Karyawan extends CI_Controller {
         $this->load->view('operator/template', $data);
 	}
 
-    public function detail($id_karyawan)
-    {
-        $karyawan = $this->Karyawan_model->detail($id_karyawan);
-        $data     = array('title'   => 'Profile '.$karyawan->nama,
-                          'karyawan' => $karyawan,
-                          'page'    => 'operator/karyawan/profile');
-        $this->load->view('operator/template', $data);
-    }
-
 	public function delete($id_karyawan)
 	{
 		// Proteksi Hapus
@@ -311,41 +304,41 @@ class Karyawan extends CI_Controller {
         if ($this->upload->do_upload('importexcel')) {
             $file = $this->upload->data();
             $reader = ReaderEntityFactory::createXLSXReader();
-
+            $reader->setShouldFormatDates(true);
             $reader->open('./assets/uploads/' . $file['file_name']);
             foreach ($reader->getSheetIterator() as $sheet) {
                 $numRow = 0;
                 foreach ($sheet->getRowIterator() as $row) {
                     if ($numRow > 0) {
                         $datakaryawan = array(
-                            'nik'  				=> $row->getCellAtIndex(0),
-                            'nama' 				=> $row->getCellAtIndex(1),
-                            'tmpt_lahir' 		=> $row->getCellAtIndex(2),
+                            'nik'  				    => $row->getCellAtIndex(0),
+                            'nama' 				    => $row->getCellAtIndex(1),
+                            'tmpt_lahir' 		  => $row->getCellAtIndex(2),
                             'pendidikan'    	=> $row->getCellAtIndex(3),
-                            'tgl_lahir' 		=> date('Y-m-d'),
-                            'umur' 				=> $row->getCellAtIndex(5),
-                            'tgl_join' 			=> date('Y-m-d'),
-                            'tgl_tetap' 		=> date('Y-m-d'),
-                            'tgl_resign' 		=> date('Y-m-d'),
-                            'jekel'    			=> $row->getCellAtIndex(9),
-                            'agama'   	 		=> $row->getCellAtIndex(10),
+                            'tgl_lahir' 		  => $row->getCellAtIndex(4),
+                            'umur' 				    => $row->getCellAtIndex(5),
+                            'tgl_join' 			  => $row->getCellAtIndex(6),
+                            'tgl_tetap' 		  => $row->getCellAtIndex(7),
+                            'tgl_resign' 		  => $row->getCellAtIndex(8),
+                            'jekel'    			  => $row->getCellAtIndex(9),
+                            'agama'   	 		  => $row->getCellAtIndex(10),
                             'departemen'    	=> $row->getCellAtIndex(11),
-                            'jabatan'    		=> $row->getCellAtIndex(12),
+                            'jabatan'    		  => $row->getCellAtIndex(12),
                             'lok_kerja'    		=> $row->getCellAtIndex(13),
-                            'status_kerja'    	=> $row->getCellAtIndex(14),
-                            'status_karyawan'   => $row->getCellAtIndex(15),
-                            'status_menikah'    => $row->getCellAtIndex(16),
+                            'status_kerja'    => $row->getCellAtIndex(14),
+                            'status_karyawan' => $row->getCellAtIndex(15),
+                            'status_menikah'  => $row->getCellAtIndex(16),
                             'jml_anak'    		=> $row->getCellAtIndex(17),
                             'alamat_ktp'    	=> $row->getCellAtIndex(18),
                             'alamat_dom'    	=> $row->getCellAtIndex(19),
-                            'cp'    			=> $row->getCellAtIndex(20),
-                            'email'    			=> $row->getCellAtIndex(21),
+                            'cp'    			    => $row->getCellAtIndex(20),
+                            'email'    			  => $row->getCellAtIndex(21),
                             'rekening'    		=> $row->getCellAtIndex(22),
-                            'ktp'    			=> $row->getCellAtIndex(23),
-                            'npwp'    			=> $row->getCellAtIndex(24),
+                            'ktp'    			    => $row->getCellAtIndex(23),
+                            'npwp'    			  => $row->getCellAtIndex(24),
                             'domisili'    		=> $row->getCellAtIndex(25),
-                            'cc'    			=> $row->getCellAtIndex(26),
-                            'resign'    		=> $row->getCellAtIndex(27),
+                            'cc'    			    => $row->getCellAtIndex(26),
+                            'resign'    		   => $row->getCellAtIndex(27),
                         );
                         $this->Karyawan_model->import_data($datakaryawan);
                     }
@@ -358,9 +351,61 @@ class Karyawan extends CI_Controller {
             }
         } else {
             echo "Error :" . $this->upload->display_errors();
-
-           
         };
+    }
+
+    public function exportExcel()
+    {
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $karyawan = $this->Karyawan_model->getDataKaryawan($tglawal, $tglakhir);
+        $data = array('title'     => 'Laporan Data Karyawan '.date('Y'),
+                      'karyawan'  => $karyawan);
+        $this->load->view('operator/karyawan/cetak', $data);
+    }
+
+    public function laporan()
+    {
+      if($this->session->userdata('status') == TRUE){
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $karyawan = $this->Karyawan_model->getDataKaryawan($tglawal, $tglakhir);
+        $data = array('title' => 'Data Karyawan',
+                      'karyawan'  => $karyawan,
+                      'page'    => 'operator/karyawan/laporan');
+        $this->load->view('operator/template', $data);
+      } else{
+        $this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
+        redirect('login','refresh');
+      }
+    }
+
+    public function detail($id_karyawan)
+    {
+        $karyawan = $this->Karyawan_model->detail($id_karyawan);
+        $cuti   = $this->db->get_where('tbl_cuti',['id_karyawan'=>$id_karyawan])->result();
+        $kontrak   = $this->db->get_where('tbl_kontrak',['id_karyawan'=>$id_karyawan])->result();
+        $pelanggaran   = $this->db->get_where('tbl_pelanggaran',['id_karyawan'=>$id_karyawan])->result();
+        $lembur   = $this->db->get_where('tbl_lembur',['id_karyawan'=>$id_karyawan])->result();
+        $data     = array('title'   => 'Profile '.$karyawan->nama,
+                          'karyawan' => $karyawan,
+                          'cuti'    => $cuti,
+                          'kontrak' => $kontrak,
+                          'pelanggaran' => $pelanggaran,
+                          'lembur'    => $lembur,
+                          'page'    => 'operator/karyawan/profile');
+        $this->load->view('operator/template', $data);
+    }
+
+    public function cuti($id_cuti){
+        $cuti = $this->Cuti_model->detail($id_cuti);
+        $id_karyawan = $cuti->id_karyawan;
+        $karyawan = $this->Karyawan_model->detail($id_karyawan);
+        $data     = array(
+                          'cuti' => $cuti,
+                          'karyawan' => $karyawan,
+                          'page'    => 'operator/karyawan/profile');
+        $this->load->view('operator/template', $data);
     }
 
 }
