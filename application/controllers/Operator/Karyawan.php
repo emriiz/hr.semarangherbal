@@ -22,7 +22,7 @@ class Karyawan extends CI_Controller {
         					  'page'    => 'operator/karyawan/list');
 		$this->load->view('operator/template', $data);
 		} else{
-			$this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
+			$this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
 			redirect('login','refresh');
 		}
 	}
@@ -104,7 +104,7 @@ class Karyawan extends CI_Controller {
                                       'tgl_input'       => $i->post('tgl_input')
                         );
                         $this->Karyawan_model->tambah($data);
-                        $this->session->set_flashdata('success', 'Data Baru Telah Ditambahkan');
+                        $this->session->set_flashdata('success', '<b>Data Baru Telah Ditambahkan</b>');
                         redirect(base_url('operator/karyawan'),'refresh');
                 }
             }else{
@@ -143,7 +143,7 @@ class Karyawan extends CI_Controller {
                                       'tgl_input'       => $i->post('tgl_input')
                         );
                         $this->Karyawan_model->tambah($data);
-                        $this->session->set_flashdata('success', 'Data Baru Telah Ditambahkan');
+                        $this->session->set_flashdata('success', '<b>Data Baru Telah Ditambahkan</b>');
                         redirect(base_url('operator/karyawan'),'refresh');
             }   
         }
@@ -229,7 +229,7 @@ class Karyawan extends CI_Controller {
                                       'tgl_input'       => $i->post('tgl_input')
                         );
                         $this->Karyawan_model->edit($data);
-                        $this->session->set_flashdata('success', 'Data Telah Diedit');
+                        $this->session->set_flashdata('success', '<b>Data Telah Diedit</b>');
                         redirect(base_url('operator/karyawan'),'refresh');
                 }
             }else{
@@ -269,7 +269,7 @@ class Karyawan extends CI_Controller {
                                       'tgl_input'       => $i->post('tgl_input')
                         );
                         $this->Karyawan_model->edit($data);
-                        $this->session->set_flashdata('success', 'Data Telah Diedit');
+                        $this->session->set_flashdata('success', '<b>Data Telah Diedit</b>');
                         redirect(base_url('operator/karyawan'),'refresh');
             }   
         }
@@ -290,7 +290,7 @@ class Karyawan extends CI_Controller {
 		
 		$data = array('id_karyawan'   => $id_karyawan);
 		$this->Karyawan_model->delete($data);
-		$this->session->set_flashdata('success', 'Data telah dihapus');
+		$this->session->set_flashdata('success', '<b>Data telah dihapus</b>');
 		redirect(base_url('operator/karyawan'),'refresh');
 	}	
 
@@ -346,7 +346,7 @@ class Karyawan extends CI_Controller {
                 }
                 $reader->close();
                 unlink('./assets/uploads/' . $file['file_name']);
-                $this->session->set_flashdata('success', 'import Data Berhasil');
+                $this->session->set_flashdata('success', '<b>Import Data Berhasil</b>');
                 redirect('operator/karyawan');
             }
         } else {
@@ -359,8 +359,10 @@ class Karyawan extends CI_Controller {
         $tglawal  = $this->input->get('tglawal');
         $tglakhir = $this->input->get('tglakhir');
         $karyawan = $this->Karyawan_model->getDataKaryawan($tglawal, $tglakhir);
-        $data = array('title'     => 'Laporan Data Karyawan '.date('Y'),
-                      'karyawan'  => $karyawan);
+        $data = array('title'     => 'Laporan Data Karyawan SHI '.date('Y'),
+                      'karyawan'  => $karyawan,
+                      'tglawal'   => $tglawal,
+                      'tglakhir'  => $tglakhir);
         $this->load->view('operator/karyawan/cetak', $data);
     }
 
@@ -375,36 +377,25 @@ class Karyawan extends CI_Controller {
                       'page'    => 'operator/karyawan/laporan');
         $this->load->view('operator/template', $data);
       } else{
-        $this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
+        $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
         redirect('login','refresh');
       }
     }
 
     public function detail($id_karyawan)
     {
-        $karyawan = $this->Karyawan_model->detail($id_karyawan);
-        $cuti   = $this->db->get_where('tbl_cuti',['id_karyawan'=>$id_karyawan])->result();
-        $kontrak   = $this->db->get_where('tbl_kontrak',['id_karyawan'=>$id_karyawan])->result();
+        $karyawan      = $this->Karyawan_model->detail($id_karyawan);
+        $cuti          = $this->db->get_where('tbl_cuti',['id_karyawan'=>$id_karyawan])->result();
+        $kontrak       = $this->db->get_where('tbl_kontrak',['id_karyawan'=>$id_karyawan])->result();
         $pelanggaran   = $this->db->get_where('tbl_pelanggaran',['id_karyawan'=>$id_karyawan])->result();
-        $lembur   = $this->db->get_where('tbl_lembur',['id_karyawan'=>$id_karyawan])->result();
-        $data     = array('title'   => 'Profile '.$karyawan->nama,
-                          'karyawan' => $karyawan,
-                          'cuti'    => $cuti,
-                          'kontrak' => $kontrak,
+        $lembur        = $this->db->get_where('tbl_lembur',['id_karyawan'=>$id_karyawan])->result();
+        $data     = array('title'       => 'Profile '.$karyawan->nama,
+                          'karyawan'    => $karyawan,
+                          'cuti'        => $cuti,
+                          'kontrak'     => $kontrak,
                           'pelanggaran' => $pelanggaran,
-                          'lembur'    => $lembur,
-                          'page'    => 'operator/karyawan/profile');
-        $this->load->view('operator/template', $data);
-    }
-
-    public function cuti($id_cuti){
-        $cuti = $this->Cuti_model->detail($id_cuti);
-        $id_karyawan = $cuti->id_karyawan;
-        $karyawan = $this->Karyawan_model->detail($id_karyawan);
-        $data     = array(
-                          'cuti' => $cuti,
-                          'karyawan' => $karyawan,
-                          'page'    => 'operator/karyawan/profile');
+                          'lembur'      => $lembur,
+                          'page'        => 'operator/karyawan/profile');
         $this->load->view('operator/template', $data);
     }
 

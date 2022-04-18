@@ -19,7 +19,7 @@ class Kontrak extends CI_Controller {
 			$data['page'] = 'operator/kontrak/list';
 			$this->load->view('operator/template', $data);
 		} else{
-			$this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
+			$this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
 			redirect('login','refresh');
 		}
 	}
@@ -58,7 +58,7 @@ class Kontrak extends CI_Controller {
 						  'kt2_1'			=> date('Y-m-d', strtotime($i->post('kt2_1')))
 					);
 			$this->Kontrak_model->tambah($data);
-			$this->session->set_flashdata('success', 'Data Kontrak Telah di Tambah');
+			$this->session->set_flashdata('success', '<b>Data Kontrak Telah di Tambah</b>');
 			redirect(base_url('operator/kontrak'), 'refresh');
 		}
 	}
@@ -93,7 +93,7 @@ class Kontrak extends CI_Controller {
 						  'kt2_1'			=> date('Y-m-d', strtotime($i->post('kt2_1')))
 					);
 			$this->Kontrak_model->edit($data);
-			$this->session->set_flashdata('success', 'Data Kontrak Telah di Edit');
+			$this->session->set_flashdata('success', '<b>Data Kontrak Telah di Edit</b>');
 			redirect(base_url('operator/kontrak'), 'refresh');
 		}
 	}
@@ -102,7 +102,7 @@ class Kontrak extends CI_Controller {
 	{
 		$data = array('id_kontrak'   => $id_kontrak);
 		$this->Kontrak_model->delete($data);
-		$this->session->set_flashdata('success', 'Data kontrak telah dihapus');
+		$this->session->set_flashdata('success', '<b>Data kontrak telah dihapus</b>');
 		redirect(base_url('operator/kontrak'),'refresh');
 	}
 

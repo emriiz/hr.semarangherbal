@@ -66,11 +66,33 @@ class Lembur_model extends CI_Model {
 	  	$this->db->where('id_karyawan', $id_karyawan);
 		$query = $this->db->get('tbl_lembur');
 		return $query->num_rows();
-
 	}
 
-	
-
+	public function getDataLembur($tglawal = null, $tglakhir = null)
+    {
+      	if($tglawal && $tglakhir){
+      	$this->db->select('tbl_lembur.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan');
+		$this->db->from('tbl_lembur');
+		$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_lembur.id_karyawan');
+		$this->db->where('tanggal >', $tglawal);
+    	$this->db->where('tanggal <', $tglakhir);
+		$this->db->order_by('id_karyawan','ASC');
+		$query = $this->db->get();
+		return $query->result_array();
+    	}
+    	$this->db->select('tbl_lembur.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan');
+		$this->db->from('tbl_lembur');
+		$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_lembur.id_karyawan');
+		$this->db->order_by('id_karyawan','ASC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }
 
 /* End of file Lembur_model.php */

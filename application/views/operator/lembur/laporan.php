@@ -2,10 +2,7 @@
             <div class="container-fluid">
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
-                        <div class="welcome-text">
-                            <h4>Hi, welcome back <?= $this->session->userdata('nama');?>!</h4>
-                            <!-- <p class="mb-0">Your business dashboard template</p> -->
-                        </div>
+                        
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
@@ -14,7 +11,6 @@
                         </ol>
                     </div>
                 </div>
-
                 <div class="row">
                      <div class="col-12">
                         <div class="card">
@@ -28,7 +24,7 @@
                                 echo $this->session->flashdata('success');
                                 echo '</div>';
                             }
-                        ?> 
+                        ?>   
                             <div class="card-body">
                                 <form method="GET" action="">  
                                 <div class="row">
@@ -45,47 +41,46 @@
                                             $tglakhir = $this->input->get('tglakhir');
                                         ?>
                                         <?php if($tglawal && $tglakhir){?>
-                                            <a href="<?= base_url('operator/karyawan/exportExcel?tglawal=' . $tglawal . '&tglakhir=' . $tglakhir);?>" class="btn btn-secondary btn-sm">Export</a>
+                                            <a href="<?= base_url('operator/lembur/export?tglawal=' . $tglawal . '&tglakhir=' . $tglakhir);?>" class="btn btn-secondary btn-sm">Export</a>
                                         <?php }else{?>
-                                            <a href="<?= base_url('operator/karyawan/exportExcel')?>" class="btn btn-secondary btn-sm">Export</a>
+                                            <a href="<?= base_url('operator/lembur/export')?>" class="btn btn-secondary btn-sm">Export</a>
                                         <?php }?>  
                                     </div>
                                </form>
                                 
                             </div>
-                        </div>
-                           
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="example" class="display" style="min-width: 845px">
-                                        <thead>
-                                            <tr style="text-align: center">
-                                                <th>#</th>
-                                                <th>NIK</th>
-                                                <th>Nama</th>
-                                                <th>Tanggal Join</th>
-                                            </tr>
-                                        </thead>
-                                       
-                                        <tbody>
-                                             <?php $i=1; foreach($karyawan as $user){?>
-                                            <tr style="text-align: center">
-                                                <td style="color: black"><?= $i ?></td>
-                                                
-                                                <td style="color: black"><?= $user['nik']; ?></td>
-                                                <td style="color: black"><?= $user['nama'] ?></td>
-                                                <td style="color: black"><?= date('d-m-Y', strtotime($user['tgl_join']))?></td>
-                                            </tr>
-                                            <?php $i++;} ?>
-                                        </tbody>
-                                        
+                                      <thead>
+                                        <tr style="text-align: center">
+                                          <th>No</th>
+                                          <th>NIK</th>
+                                          <th>Nama</th>
+                                          <th>Tanggal</th>
+                                          <th>Jam Awal</th>
+                                          <th>Jam Akhir</th>
+                                          <th>Keterangan</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <?php $i=1; foreach($lembur as $lbr ) { ?> 
+                                        <tr style="text-align: center; color: black">
+                                          <th><?= $i?></th>
+                                          <th><?php echo $lbr['nik']?></th>
+                                          <th><?php echo $lbr['nama']?></th>
+                                          <th><?php echo date('d-m-Y', strtotime($lbr['tanggal']))?></th>
+                                          <th><?php echo date('H:i:s', strtotime($lbr['jam_awal']))?></th>
+                                          <th><?php echo date('H:i:s', strtotime($lbr['jam_akhir']))?></th>
+                                          <th><?php echo $lbr['keterangan']?></th>
+                                        </tr> 
+                                        <!-- -->
+                                        <?php $i++;} ?>
+                                        <!-- -->
+                                      </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class="card-footer" style="text-align: right">
-                                
-                            </div>
-                          
                         </div>
                     </div>
                 </div>

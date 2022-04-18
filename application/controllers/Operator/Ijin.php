@@ -20,7 +20,7 @@ class Ijin extends CI_Controller {
 			$data['page'] = 'operator/ijin/list';
 			$this->load->view('operator/template', $data);
 		} else{
-			$this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
+			$this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
 			redirect('login','refresh');
 		}
 	}
@@ -62,7 +62,7 @@ class Ijin extends CI_Controller {
 						  'keterangan'		=> $i->post('keterangan')
 					);
 			$this->Ijin_model->tambah($data);
-			$this->session->set_flashdata('success', 'Data Ijin Telah di Tambah');
+			$this->session->set_flashdata('success', '<b>Data Ijin Telah di Tambah</b>');
 			redirect(base_url('operator/ijin'), 'refresh');
 		}
 	}
@@ -98,7 +98,7 @@ class Ijin extends CI_Controller {
 						  'keterangan'		=> $i->post('keterangan')
 					);
 			$this->Ijin_model->edit($data);
-			$this->session->set_flashdata('success', 'Data Ijin Telah di Edit');
+			$this->session->set_flashdata('success', '<b>Data Ijin Telah di Edit</b>');
 			redirect(base_url('operator/ijin'), 'refresh');
 		}
 	}
@@ -107,9 +107,37 @@ class Ijin extends CI_Controller {
 	{
 		$data = array('id_ijin'   => $id_ijin);
 		$this->Ijin_model->delete($data);
-		$this->session->set_flashdata('success', 'Data Ijin telah dihapus');
+		$this->session->set_flashdata('success', '<b>Data Ijin telah dihapus</b>');
 		redirect(base_url('operator/ijin'),'refresh');
 	}
+
+	public function laporan()
+    {
+      if($this->session->userdata('status') == TRUE){
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $ijin = $this->Ijin_model->getDataIjin($tglawal, $tglakhir);
+        $data = array('title' => 'Data Ijin Karyawan',
+                      'ijin'  => $ijin,
+                      'page'    => 'operator/ijin/laporan');
+        $this->load->view('operator/template', $data);
+      } else{
+        $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
+        redirect('login','refresh');
+      }
+    }
+
+    public function export()
+    {
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $ijin 	  = $this->Ijin_model->getDataIjin($tglawal, $tglakhir);
+        $data = array('title'     => 'Laporan Data Ijin Karyawan SHI '.date('Y'),
+                      'ijin'  	  => $ijin,
+                      'tglawal'   => $tglawal,
+                      'tglakhir'  => $tglakhir);
+        $this->load->view('operator/ijin/cetak', $data);
+    }
 
 }
 

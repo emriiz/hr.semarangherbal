@@ -56,7 +56,7 @@ class Pelanggaran extends CI_Controller {
 						  'sanksi'			=> $i->post('sanksi')
 					);
 			$this->Pelanggaran_model->tambah($data);
-			$this->session->set_flashdata('success', 'Data Pelanggaran Telah di Tambah');
+			$this->session->set_flashdata('success', '<b>Data Pelanggaran Telah di Tambah</b>');
 			redirect(base_url('operator/pelanggaran'), 'refresh');
 		}
 	}
@@ -90,7 +90,7 @@ class Pelanggaran extends CI_Controller {
 						  'sanksi'			=> $i->post('sanksi')
 					);
 			$this->Pelanggaran_model->edit($data);
-			$this->session->set_flashdata('success', 'Data Pelanggaran Telah di Edit');
+			$this->session->set_flashdata('success', '<b>Data Pelanggaran Telah di Edit</b>');
 			redirect(base_url('operator/pelanggaran'), 'refresh');
 		}
 	}
@@ -99,10 +99,37 @@ class Pelanggaran extends CI_Controller {
 	{
 		$data = array('id_pelanggaran'   => $id_pelanggaran);
 		$this->Pelanggaran_model->delete($data);
-		$this->session->set_flashdata('success', 'Data Pelanggaran telah dihapus');
+		$this->session->set_flashdata('success', '<b>Data Pelanggaran telah dihapus</b>');
 		redirect(base_url('operator/pelanggaran'),'refresh');
 	}
 
+	public function laporan()
+    {
+      if($this->session->userdata('status') == TRUE){
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $pelanggaran = $this->Pelanggaran_model->getDataPelanggaran($tglawal, $tglakhir);
+        $data = array('title' => 'Data Pelanggaran Karyawan',
+                      'pelanggaran'  => $pelanggaran,
+                      'page'    => 'operator/pelanggaran/laporan');
+        $this->load->view('operator/template', $data);
+      } else{
+        $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
+        redirect('login','refresh');
+      }
+    }
+
+    public function export()
+    {
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $pelanggaran 	  = $this->Pelanggaran_model->getDataPelanggaran($tglawal, $tglakhir);
+        $data = array('title'     => 'Laporan Data Pelanggaran Karyawan SHI '.date('Y'),
+                      'pelanggaran'  	  => $pelanggaran,
+                      'tglawal'   => $tglawal,
+                      'tglakhir'  => $tglakhir);
+        $this->load->view('operator/pelanggaran/cetak', $data);
+    }
 }
 
 /* End of file Pelanggaran.php */

@@ -58,7 +58,7 @@ class Lembur extends CI_Controller {
 						  'keterangan'		=> $i->post('keterangan')
 					);
 			$this->Lembur_model->tambah($data);
-			$this->session->set_flashdata('success', 'Data Lembur Telah di Tambah');
+			$this->session->set_flashdata('success', '<b>Data Lembur Telah di Tambah</b>');
 			redirect(base_url('operator/lembur'), 'refresh');
 		}
 	}
@@ -94,7 +94,7 @@ class Lembur extends CI_Controller {
 						  'keterangan'		=> $i->post('keterangan')
 					);
 			$this->Lembur_model->edit($data);
-			$this->session->set_flashdata('success', 'Data Lembur Telah di Edit');
+			$this->session->set_flashdata('success', '<b>Data Lembur Telah di Edit</b>');
 			redirect(base_url('operator/lembur'), 'refresh');
 		}
 	}
@@ -103,11 +103,37 @@ class Lembur extends CI_Controller {
 	{
 		$data = array('id_lembur'   => $id_lembur);
 		$this->Lembur_model->delete($data);
-		$this->session->set_flashdata('success', 'Data lembur telah dihapus');
+		$this->session->set_flashdata('success', '<b>Data lembur telah dihapus</b>');
 		redirect(base_url('operator/lembur'),'refresh');
 	}
 
+	public function laporan()
+    {
+      if($this->session->userdata('status') == TRUE){
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $lembur = $this->Lembur_model->getDataLembur($tglawal, $tglakhir);
+        $data = array('title' => 'Data Lembur Karyawan',
+                      'lembur'  => $lembur,
+                      'page'    => 'operator/lembur/laporan');
+        $this->load->view('operator/template', $data);
+      } else{
+        $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
+        redirect('login','refresh');
+      }
+    }
 
+    public function export()
+    {
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $lembur 	  = $this->Lembur_model->getDataLembur($tglawal, $tglakhir);
+        $data = array('title'     => 'Laporan Data Lembur Karyawan SHI '.date('Y'),
+                      'lembur'  	  => $lembur,
+                      'tglawal'   => $tglawal,
+                      'tglakhir'  => $tglakhir);
+        $this->load->view('operator/lembur/cetak', $data);
+    }
 }
 
 /* End of file Lembur.php */

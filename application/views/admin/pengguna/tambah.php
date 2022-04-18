@@ -72,7 +72,8 @@
                                                     <div class="col-lg-6">
                                                         <select class="form-control" name="hak_akses">
                                                             <option value="1">Admin</option>
-                                                            <option value="2">Operator</option>
+                                                            <option value="2">HR</option>
+                                                            <option value="3">5R</option>
                                                         </select>
                                                     </div>
                                                 </div>

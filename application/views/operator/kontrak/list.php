@@ -44,6 +44,7 @@
                                                 <th>Kontrak 2</th>
                                                 <th>Kontrak 1</th>
                                                 <th>Kontrak 2</th>
+                                                <th>Status</th>
                                                 <?php if($this->uri->segment(3) == "") { ?>
                                                 <th width="10%"> Aksi</th>
                                                 <?php }?>
@@ -56,15 +57,16 @@
                                                 <th style="color: black; text-align: center"><?= $user->nama?></th>
                                                 <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->tgl_join))?></th>
                                                 <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt1))?></th>
-                                                <?php if(($user->kt2==null && $user->kt1_1==null && $user->kt2_1==null )) {?>
-                                                <th style="color: black; text-align: center">-</th>
-                                                <th style="color: black; text-align: center">-</th>
-                                                <th style="color: black; text-align: center">-</th>
+                                                <?php if(($user->kt2=="1970-01-01" && $user->kt1_1=="1970-01-01" && $user->kt2_1=="1970-01-01" )) {?>
+                                                    <th style="color: black; text-align: center">-</th>
+                                                    <th style="color: black; text-align: center">-</th>
+                                                    <th style="color: black; text-align: center">-</th>
                                                 <?php }else{?>
-                                                <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2))?></th>
-                                                <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt1_1))?></th>
-                                                <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2_1))?></th>
+                                                    <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2))?></th>
+                                                    <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt1_1))?></th>
+                                                    <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2_1))?></th>
                                                 <?php }?>
+                                                <th style="color: black; text-align: center"></th>
                                                 <?php if($this->uri->segment(3) == "") { ?>
                                                 <th>
                                                     <a href="<?php echo base_url('operator/kontrak/edit/'.$user->id_kontrak)?>" class="btn btn-secondary btn-sm"><i class="fa fa-edit"></i></a>

@@ -66,7 +66,32 @@ class Ijin_model extends CI_Model {
 	  	$this->db->where('id_karyawan', $id_karyawan);
 		$query = $this->db->get('tbl_ijin');
 		return $query->num_rows();
+	}
 
+	public function getDataIjin($tglawal = null, $tglakhir = null)
+    {
+      	if($tglawal && $tglakhir){
+      	$this->db->select('tbl_ijin.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan');
+		$this->db->from('tbl_ijin');
+		$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_ijin.id_karyawan');
+		$this->db->where('tgl_ijin >', $tglawal);
+    	$this->db->where('tgl_ijin <', $tglakhir);
+		$this->db->order_by('id_karyawan','ASC');
+		$query = $this->db->get();
+		return $query->result_array();
+    	}
+    	$this->db->select('tbl_ijin.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan');
+		$this->db->from('tbl_ijin');
+		$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_ijin.id_karyawan');
+		$this->db->order_by('id_karyawan','ASC');
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 
 }

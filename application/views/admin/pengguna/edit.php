@@ -72,7 +72,8 @@
                                                     <div class="col-lg-6">
                                                         <select class="form-control" name="hak_akses">
                                                             <option value="1"<?php if($user->hak_akses=="1"){echo 'selected';}?>>Admin</option>
-                                                            <option value="2"<?php if($user->hak_akses=="2"){echo 'selected';}?>>Operator</option>
+                                                            <option value="2"<?php if($user->hak_akses=="2"){echo 'selected';}?>>HR</option>
+                                                            <option value="3"<?php if($user->hak_akses=="3"){echo 'selected';}?>>5R</option>
                                                         </select>
                                                     </div>
                                                 </div>

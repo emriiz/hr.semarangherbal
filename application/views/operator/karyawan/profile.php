@@ -58,12 +58,12 @@
                                         <ul class="nav nav-tabs">
                                             <li class="nav-item"><a href="#my-posts" data-toggle="tab" class="nav-link active show">Tentang</a>
                                             </li>
-                                            <li class="nav-item"><a href="#about-me" data-toggle="tab" class="nav-link">Kontrak</a>
-                                            </li>
+                                            <!-- <li class="nav-item"><a href="#about-me" data-toggle="tab" class="nav-link">Kontrak</a>
+                                            </li> -->
                                             <li class="nav-item"><a href="#cuti-settings" data-toggle="tab" class="nav-link">Cuti</a>
                                             </li>
-                                             <li class="nav-item"><a href="#absensi-settings" data-toggle="tab" class="nav-link">Absensi</a>
-                                            </li>
+                                           <!--   <li class="nav-item"><a href="#absensi-settings" data-toggle="tab" class="nav-link">Absensi</a>
+                                            </li> -->
                                              <li class="nav-item"><a href="#pelanggaran-settings" data-toggle="tab" class="nav-link">Pelanggaran</a>
                                             </li>
                                              <li class="nav-item"><a href="#lembur-settings" data-toggle="tab" class="nav-link">Lembur</a>

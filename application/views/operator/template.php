@@ -20,6 +20,14 @@
      <!-- Pick date -->
     <link rel="stylesheet" href="<?= base_url()?>assets/vendor/pickadate/themes/default.css">
     <link rel="stylesheet" href="<?= base_url()?>assets/vendor/pickadate/themes/default.date.css">
+    <style type="text/css" media="screen">
+        .jam {
+        font-size: 1em;
+        border: 1px solid #d35400;
+        border-radius: 5px;
+        padding: 5px;
+     }
+    </style>
 
 </head>
 
@@ -80,7 +88,7 @@
                             <i class="mdi mdi-account"> <?= $this->session->userdata('nama');?></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="./app-profile.html" class="dropdown-item">
+                            <a href="<?= base_url('operator/home/ubah_password')?>" class="dropdown-item">
                                 <i class="icon-key"></i>
                                 <span class="ml-2">Ubah Password </span>
                             </a>
@@ -125,7 +133,7 @@
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/kontrak')?>">Data Kontrak Karyawan</a></li>
                             <li><a href="<?= base_url('operator/kontrak/list_karyawan')?>">Tambah Data</a></li>
-                            <li><a href="<?= base_url('operator/kontrak/list_karyawan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('operator/kontrak/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -133,8 +141,8 @@
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/cuti')?>">Data Cuti</a></li>
                             <li><a href="<?= base_url('operator/cuti/list')?>">Tambah Data</a></li>
-                            <li><a href="#">Laporan</a></li>
-                            <li><a href="#">Setting</a></li>
+                            <li><a href="<?= base_url('operator/cuti/laporan')?>">Laporan</a></li>
+                            <!-- <li><a href="#">Setting</a></li> -->
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -142,23 +150,18 @@
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/ijin')?>">Data Izin</a></li>
                             <li><a href="<?= base_url('operator/ijin/list')?>">Tambah Data</a></li>
-                            <li><a href="#">Laporan</a></li>
+                            <li><a href="<?= base_url('operator/ijin/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                    <li><a href="<?= base_url('operator/absensi')?>" aria-expanded="false">
                         <i class="fa fa-address-book-o" aria-hidden="true"></i><span class="nav-text">Absensi</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/absensi')?>">Data Absensi</a></li>
-                            <li><a href="<?= base_url('operator/absensi/list')?>">Tambah Data</a></li>
-                            <li><a href="#">Laporan</a></li>
-                        </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="nav-text">Pelanggaran</span></a>
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/pelanggaran')?>">Data Pelanggaran</a></li>
                             <li><a href="<?= base_url('operator/pelanggaran/list')?>">Tambah Data</a></li>                            
-                            <li><a href="#">Laporan</a></li>
+                            <li><a href="<?= base_url('operator/pelanggaran/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                      <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -166,7 +169,7 @@
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/lembur')?>">Data Lembur</a></li>
                             <li><a href="<?= base_url('operator/lembur/list')?>">Tambah Data</a></li>                            
-                            <li><a href="#">Laporan</a></li>
+                            <li><a href="<?= base_url('operator/lembur/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                     <?php }else{?>
@@ -175,8 +178,8 @@
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/cuti')?>">Data Cuti</a></li>
                             <li><a href="<?= base_url('operator/cuti/list')?>">Tambah Data</a></li>
-                            <li><a href="#">Laporan</a></li>
-                            <li><a href="#">Setting</a></li>
+                            <li><a href="<?= base_url('operator/cuti/laporan')?>">Laporan</a></li>
+                           <!--  <li><a href="#">Setting</a></li> -->
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -184,23 +187,18 @@
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/ijin')?>">Data Izin</a></li>
                             <li><a href="<?= base_url('operator/ijin/list')?>">Tambah Data</a></li>
-                            <li><a href="#">Laporan</a></li>
+                            <li><a href="<?= base_url('operator/ijin/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                    <li><a href="<?= base_url('operator/absensi')?>" aria-expanded="false">
                         <i class="fa fa-address-book-o" aria-hidden="true"></i><span class="nav-text">Absensi</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/absensi')?>">Data Absensi</a></li>
-                            <li><a href="<?= base_url('operator/absensi/list')?>">Tambah Data</a></li>
-                            <li><a href="#">Laporan</a></li>
-                        </ul>
                     </li>
                      <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-calculator" aria-hidden="true"></i><span class="nav-text">Lembur</span></a>
                         <ul aria-expanded="false">
                             <li><a href="<?= base_url('operator/lembur')?>">Data Lembur</a></li>
                             <li><a href="<?= base_url('operator/lembur/list')?>">Tambah Data</a></li>                            
-                            <li><a href="#">Laporan</a></li>
+                            <li><a href="<?= base_url('operator/lembur/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                     <?php }?>    
@@ -345,6 +343,23 @@
                 });
          
             });
+    </script>
+    <script>
+        function jam() {
+    var time = new Date(),
+        hours = time.getHours(),
+        minutes = time.getMinutes(),
+        seconds = time.getSeconds();
+    document.querySelectorAll('.jam')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+      
+    function harold(standIn) {
+        if (standIn < 10) {
+          standIn = '0' + standIn
+        }
+        return standIn;
+        }
+    }
+    setInterval(jam, 1000);
     </script>  
 
 </body>

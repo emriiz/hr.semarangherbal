@@ -21,6 +21,16 @@ class Kontrak_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function list_karyawan() {
+		$this->db->select('*');
+		$this->db->from('tbl_karyawan');
+		$this->db->where('status_karyawan =', 'Kontrak');
+		$this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	
 	public function pilih($id_karyawan){
 		$this->db->select('tbl_kontrak.*,
 						 tbl_karyawan.nik,
@@ -56,15 +66,6 @@ class Kontrak_model extends CI_Model {
 		$this->db->order_by('id_kontrak','ASC');
 		$query = $this->db->get();
 		return $query->row();
-	}
-
-	public function list_karyawan() {
-		$this->db->select('*');
-		$this->db->from('tbl_karyawan');
-		$this->db->where('status_karyawan =', 'Kontrak');
-		$this->db->order_by('id_karyawan','DESC');
-		$query = $this->db->get();
-		return $query->result();
 	}
 }
 

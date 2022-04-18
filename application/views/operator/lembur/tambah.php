@@ -38,7 +38,6 @@
                                 <select name="waktu" class="form-control">
                                   <option value="">--Pilih Waktu Lembur--</option>
                                   <option value="Hari Biasa">Hari Biasa</option>
-                                  <option value="Hari Minggu">Hari Minggu</option>
                                   <option value="Hari Libur">Hari Libur</option>
                                 </select>
                             </div>

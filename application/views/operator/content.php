@@ -8,10 +8,10 @@
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <!-- <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Layout</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Blank</a></li>
-                        </ol> -->
+                        <!-- <span class="jam"></span> -->
+                       <ol class="breadcrumb">
+                            <li class="breadcrumb-item active"><h4 class="jam"></h4></a></li>
+                        </ol>
                     </div>
                 </div>
 
@@ -68,14 +68,20 @@
                                     <i class="ti-link text-danger border-danger"></i>
                                 </div>
                                 <div class="stat-content d-inline-block">
-                                    <div class="stat-text">Referral</div>
-                                    <div class="stat-digit">2,781</div>
+                                    <div class="stat-text">Tetap</div>
+                                    <div class="stat-digit"><?php $this->db->select('*');
+                                                            $this->db->from('tbl_karyawan');
+                                                            $this->db->like('status_karyawan', 'Tetap');
+                                                            echo $this->db->count_all_results();?></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
+                    <div class="card-body">
+                                <div class="year-calendar"></div>
+                            </div>
                 </div>
                 <div class="row">
                 </div>

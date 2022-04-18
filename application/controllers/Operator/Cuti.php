@@ -20,7 +20,7 @@ class Cuti extends CI_Controller {
 			$data['page'] = 'operator/cuti/list';
 			$this->load->view('operator/template', $data);
 		} else{
-			$this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
+			$this->session->set_flashdata('alert', '<b> Silahkan Login Terlebih Dahulu</b>');
 			redirect('login','refresh');
 		}
 	}
@@ -61,7 +61,7 @@ class Cuti extends CI_Controller {
 						  'keterangan'		=> $i->post('keterangan')  
 					);
 			$this->Cuti_model->tambah($data);
-			$this->session->set_flashdata('success', 'Data Cuti Telah di Tambah');
+			$this->session->set_flashdata('success', '<b> Data Cuti Telah di Tambah</b>');
 			redirect(base_url('operator/cuti'), 'refresh');
 		}
 	}
@@ -95,7 +95,7 @@ class Cuti extends CI_Controller {
 						  
 					);
 			$this->Cuti_model->edit($data);
-			$this->session->set_flashdata('success', 'Data Cuti Telah di Edit');
+			$this->session->set_flashdata('success', '<b>Data Cuti Telah di Edit</b>');
 			redirect(base_url('operator/cuti'), 'refresh');
 		}
 	}
@@ -104,9 +104,37 @@ class Cuti extends CI_Controller {
 	{
 		$data = array('id_cuti'   => $id_cuti);
 		$this->Cuti_model->delete($data);
-		$this->session->set_flashdata('success', 'Data Cuti telah dihapus');
+		$this->session->set_flashdata('success', '<b>Data Cuti telah dihapus</b>');
 		redirect(base_url('operator/cuti'),'refresh');
 	}
+
+	public function laporan()
+    {
+      if($this->session->userdata('status') == TRUE){
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $cuti = $this->Cuti_model->getDataCuti($tglawal, $tglakhir);
+        $data = array('title' => 'Data Cuti Karyawan',
+                      'cuti'  => $cuti,
+                      'page'    => 'operator/cuti/laporan');
+        $this->load->view('operator/template', $data);
+      } else{
+        $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
+        redirect('login','refresh');
+      }
+    }
+
+    public function export()
+    {
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $cuti = $this->Cuti_model->getDataCuti($tglawal, $tglakhir);
+        $data = array('title'     => 'Laporan Data Cuti Karyawan SHI '.date('Y'),
+                      'cuti'  	  => $cuti,
+                      'tglawal'   => $tglawal,
+                      'tglakhir'  => $tglakhir);
+        $this->load->view('operator/cuti/cetak', $data);
+    }
 
 }
 

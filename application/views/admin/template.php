@@ -80,7 +80,7 @@
                                 <span class="ml-2">Ubah Password </span>
                             </a>
                             <a href="<?= base_url('login/logout')?>" class="dropdown-item">
-                                <i class="fas fa-power-off"></i>
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
                                 <span class="ml-2">Logout </span>
                             </a>
                         </div>
