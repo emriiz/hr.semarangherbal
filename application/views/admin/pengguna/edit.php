@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="col-12" style="text-align: center">
                                                 <button type="submit" class="btn btn-rounded btn-primary">Simpan</button>
-                                                <button type="reset" class="btn btn-rounded btn-dark">Batal</button>
+                                                <a href="<?= base_url('admin/user')?>" class="btn btn-rounded btn-dark">Batal</a>
                                             </div>
                                         </div>
                                     </form>

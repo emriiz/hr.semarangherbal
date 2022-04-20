@@ -77,6 +77,7 @@ class Login extends CI_Controller {
 
 	public function logout() {
 	$this->session->set_userdata('email', FALSE);
+	$this->session->set_flashdata('success', 'Anda telah logout dari aplikasi');
 	$this->session->sess_destroy();
 	redirect(base_url('login'),'refresh');
 	}

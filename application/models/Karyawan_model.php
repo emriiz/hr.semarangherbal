@@ -71,6 +71,16 @@ class Karyawan_model extends CI_Model {
         return $this->db->get('tbl_karyawan')->result_array();
     }
 
+    public function getDataKaryawanNon($tglawal = null, $tglakhir = null)
+    {
+      	if($tglawal && $tglakhir){
+    		$this->db->where('tgl_resign >', $tglawal);
+    		$this->db->where('tgl_resign <', $tglakhir);
+    	}
+    	$this->db->where('status_aktif = 2');
+        return $this->db->get('tbl_karyawan')->result_array();
+    }
+
     public function totalKaryawan()
 	{   
 	    $query = $this->db->get('tbl_karyawan');

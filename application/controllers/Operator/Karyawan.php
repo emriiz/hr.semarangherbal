@@ -27,6 +27,22 @@ class Karyawan extends CI_Controller {
 		}
 	}
 
+  public function non_aktif()
+  {
+    if($this->session->userdata('status') == TRUE){
+       $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $karyawan = $this->Karyawan_model->getDataKaryawanNon($tglawal, $tglakhir);
+      $data = array('title' => 'Data Karyawan Non Aktif',
+                    'karyawan'  => $karyawan,
+                    'page'    => 'operator/karyawan/list_non');
+    $this->load->view('operator/template', $data);
+    } else{
+      $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
+      redirect('login','refresh');
+    }
+  }
+
     public function tambah()
     {
         $id_user = $this->session->userdata('id_user');
@@ -364,6 +380,18 @@ class Karyawan extends CI_Controller {
                       'tglawal'   => $tglawal,
                       'tglakhir'  => $tglakhir);
         $this->load->view('operator/karyawan/cetak', $data);
+    }
+
+    public function export()
+    {
+        $tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $karyawan = $this->Karyawan_model->getDataKaryawanNon($tglawal, $tglakhir);
+        $data = array('title'     => 'Laporan Data Resign Karyawan SHI '.date('Y'),
+                      'karyawan'  => $karyawan,
+                      'tglawal'   => $tglawal,
+                      'tglakhir'  => $tglakhir);
+        $this->load->view('operator/karyawan/print', $data);
     }
 
     public function laporan()

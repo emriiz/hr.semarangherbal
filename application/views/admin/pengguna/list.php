@@ -20,14 +20,12 @@
                         <div class="card">
                         <?php
                         if ($this->session->flashdata('alert')) {
-                                echo '<div class="alert alert-danger alert-dismissible fade show"> ';
+                                echo '<div class="alert alert-danger solid alert-dismissible fade show"> ';
                                 echo $this->session->flashdata('alert');
-                                echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
                                 echo '</div>';
                             } else if($this->session->flashdata('success')){
-                                echo '<div class="alert alert-success alert-dismissible fade show"> ';
+                                echo '<div class="alert alert-success solid alert-dismissible fade show"> ';
                                 echo $this->session->flashdata('success');
-                                echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
                                 echo '</div>';
                             }
                         ?>      
@@ -53,7 +51,7 @@
                                                 <td style="color: black"><?= $pengguna->email ?></td>
                                                 <td>
                                                     <a href="<?= base_url('admin/user/edit/'.$pengguna->id_user)?>" class="btn btn-primary btn-sm" value="Edit"><i class="fa fa-pencil"></i></a>
-                                                     <a href="" class="btn btn-danger btn-sm" value="Hapus"><i class="fa fa-trash"></i></a>
+                                                     <?php include('delete.php')?>
                                                 </td>
                                             </tr>
                                             <?php $i++;} ?>

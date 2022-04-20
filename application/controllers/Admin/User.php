@@ -85,6 +85,14 @@ class User extends CI_Controller {
 		}
 
 	}
+
+	public function delete($id_user)
+	{
+		$data = array('id_user'   => $id_user);
+		$this->User_model->delete($data);
+		$this->session->set_flashdata('success', '<b>Data User telah dihapus</b>');
+		redirect(base_url('admin/user'),'refresh');
+	}
 }
 
 /* End of file User.php */

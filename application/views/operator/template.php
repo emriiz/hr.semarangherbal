@@ -120,10 +120,15 @@
                     </li>
                     <?php if($this->session->userdata('hak_akses')==2){?>
                     <li class="nav-label">Kelola Karyawan</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="fa fa-users" aria-hidden="true"></i><span class="nav-text">Karyawan</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"> 
+                        <i class="fa fa-users" aria-hidden="true"></i><span class="nav-text">Kelola Karyawan</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/karyawan')?>">Data Karyawan</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Data Karyawan</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="<?= base_url('operator/karyawan')?>">Aktif</a></li>
+                                    <li><a href="<?= base_url('operator/karyawan/non_aktif')?>">Non Aktif</a></li>
+                                </ul>
+                            </li>
                             <li><a href="<?= base_url('operator/karyawan/tambah')?>">Tambah Data</a></li>
                             <li><a href="<?= base_url('operator/karyawan/laporan')?>">Laporan</a></li>
                         </ul>
@@ -221,6 +226,7 @@
         <div class="footer">
             <div class="copyright">
                 <p style="color: black">Copyright © <a href="https://www.semarangherbal.co.id/">Semarang Herbal Indoplant</a> 2022</p>
+                <p style="color: black">V.1.0</p>
             </div>
         </div>
         <!--**********************************

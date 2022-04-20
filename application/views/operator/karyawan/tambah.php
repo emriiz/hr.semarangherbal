@@ -82,7 +82,7 @@
                                               <!-- /.form-group Pendidikan -->
                                                 <div class="form-group">
                                                   <label style="color: black">Pendidikan Terakhir<small style="color: red">*</small></label>
-                                                  <select id="single-select" name="pendidikan" class="form-control select2" style="width: 100%;" required>
+                                                  <select  name="pendidikan" class="form-control select2" style="width: 100%;" required>
                                                     <option>--Pilih Pendidikan--</option>
                                                     <option value="SD">SD</option>
                                                     <option value="SMP">SMP</option>
@@ -118,7 +118,7 @@
                                                   <select id="single-select" name="departemen" class="form-control select2" style="width: 100%;" required>
                                                     <option>--Pilih Departemen--</option>
                                                     <option value="Atsiri">Atsiri</option>
-                                                    <option value="Ayak">Ayak/option>
+                                                    <option value="Ayak">Ayak</option>
                                                     <option value="Bioetanol">Bioetanol</option>
                                                     <option value="GA">GA</option>
                                                     <option value="Gudang">Gudang</option>
@@ -136,6 +136,8 @@
                                                     <option value="QC">QC</option>
                                                     <option value="R&D">R&D</option>
                                                     <option value="Teknik">Teknik</option>
+                                                    <option value="Finance">Finance</option>
+                                                    <option value="HRGA-K3">HRGA-K3</option>
                                                   </select>
                                               </div>
                                               <div class="row">
@@ -163,6 +165,9 @@
                                                       <option value="Staff HR">Staff HR</option>
                                                       <option value="Staff K3">Staff K3</option>
                                                       <option value="Teknisi">Teknisi</option>
+                                                      <option value="IPC">IPC</option>
+                                                      <option value="Accounting">Accounting</option>
+                                                      <option value="PG">PG</option>
                                                     </select>
                                                   </div>  
                                                 </div>
@@ -212,6 +217,8 @@
                                                     <option value="Telepon">Telepon</option>
                                                     <option value="Timbang">Timbang</option>
                                                     <option value="Teknik">Teknik</option>
+                                                    <option value="Pilot Plant">Pilot Plant</option>
+                                                    <option value="Menara">Menara</option>
                                                   </select>
                                               </div>
                                             </div>

@@ -29,19 +29,30 @@
                                 echo '</div>';
                             }
                         ?>   
-                            <div class="card-header">
-                                <?= form_open_multipart('operator/karyawan/uploaddata') ?>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="form-control-file" id="importexcel" name="importexcel" accept=".xlsx,.xls">
-                                        
+                          <div class="card-body">
+                                <form method="GET" action="">  
+                                <div class="row">
+                                    <div class="col-3">
+                                        <input type="date" class="form-control" name="tglawal">
                                     </div>
-                                     <div class="input-group-prepend">
-                                        <button type="submit" class="btn btn-primary">Import</button>
+                                    <div class="col-3">
+                                        <input type="date" class="form-control" name="tglakhir">
                                     </div>
-                                </div>
-                                 <?= form_close(); ?>       
-                            </div>   
+                                    <div class="col-3">
+                                        <button type="submit" class="btn btn-success btn-sm">Cari</button>
+                                         <?php 
+                                            $tglawal  = $this->input->get('tglawal');
+                                            $tglakhir = $this->input->get('tglakhir');
+                                        ?>
+                                        <?php if($tglawal && $tglakhir){?>
+                                            <a href="<?= base_url('operator/karyawan/export?tglawal=' . $tglawal . '&tglakhir=' . $tglakhir);?>" class="btn btn-secondary btn-sm">Export</a>
+                                        <?php }else{?>
+                                            <a href="<?= base_url('operator/karyawan/export')?>" class="btn btn-secondary btn-sm">Export</a>
+                                        <?php }?>  
+                                    </div>
+                               </form>
+                                
+                            </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="example" class="display" style="min-width: 845px">
@@ -51,7 +62,10 @@
                                                 <th width="30%">Foto</th>
                                                 <th>NIK</th>
                                                 <th>Nama</th>
-                                                <th width="20%">Aksi</th>
+                                                <th>Jabatan</th>
+                                                <th>Tanggal Resign</th>
+                                                <th>Alasan resign</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                        
@@ -59,18 +73,17 @@
                                              <?php $i=1; foreach($karyawan as $user){?>
                                             <tr style="text-align: center">
                                                 <td style="color: black"><?= $i ?></td>
-                                                 <?php if(($user->foto)== NULL){?>
+                                                 <?php if(($user['foto'])== NULL){?>
                                                     <td><img src="<?php echo base_url();?>assets/images/default.jpg" width="20%"></td>
                                                   <?php }else{?>
                                                     <td><img src="<?php echo base_url();?>assets/foto/<?php echo $user->foto;?>" width="60"></td>
                                                   <?php }?>
-                                                <td style="color: black"><?= $user->nik ?></td>
-                                                <td style="color: black"><?= $user->nama ?></td>
-                                                <td>
-                                                    <a href="<?= base_url('operator/karyawan/detail/'.$user->id_karyawan)?>" class="btn btn-info" value="Detail"><i class="fa fa-eye"></i></a>
-                                                    <a href="<?= base_url('operator/karyawan/edit/'.$user->id_karyawan)?>" class="btn btn-primary" value="Edit"><i class="fa fa-pencil"></i></a>
-                                                     <?php include('delete.php')?>
-                                                </td>
+                                                <td style="color: black"><?= $user['nik']; ?></td>
+                                                <td style="color: black"><?= $user['nama'] ?></td>
+                                                <td style="color: black"><?= $user['jabatan'] ?></td>
+                                                <td style="color: black"><?= date('d-m-Y', strtotime($user['tgl_resign']))?></td>
+                                                <td style="color: black"><?= $user['resign'] ?></td>
+                                                <td><a href="<?= base_url('operator/karyawan/detail/'.$user['id_karyawan'])?>" class="btn btn-info" value="Detail"><i class="fa fa-eye"></i></a></td>
                                             </tr>
                                             <?php $i++;} ?>
                                         </tbody>

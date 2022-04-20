@@ -18,11 +18,11 @@
                         <div class="card">
                         <?php
                         if ($this->session->flashdata('alert')) {
-                                echo '<div class="alert alert-danger alert-dismissible fade show"> ';
+                                echo '<div class="alert alert-danger solid alert-dismissible fade show"> ';
                                 echo $this->session->flashdata('alert');
                                 echo '</div>';
                             } else if($this->session->flashdata('success')){
-                                echo '<div class="alert alert-success alert-dismissible fade show"> ';
+                                echo '<div class="alert alert-success solid alert-dismissible fade show"> ';
                                 echo $this->session->flashdata('success');
                                 echo '</div>';
                             }

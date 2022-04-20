@@ -1,0 +1,36 @@
+<?php
+header("Content-type:application/octet-stream/");
+
+header("Content-Disposition:attachment; filename=$title.xls");
+
+header("Pragma: no-cache");
+
+header("Expires: 0");
+?>
+<h3> Laporan Data Karyawan SHI : <?= date('d F Y'); ?> </h3>
+<h3> Periode : <?= date('d-m-Y', strtotime($tglawal))?> s/d <?= date('d-m-Y', strtotime($tglakhir))?></h3>
+<table border="1" width="100%">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>NIK</th>
+            <th>Nama</th>
+            <th>Jabatan</th>
+            <th>Tanggal Resign</th>
+            <th>Alasan resign</th>
+        </tr>
+    </thead>
+    <tbody>
+       <?php $i=1; foreach($karyawan as $user){?>
+        <tr style="text-align: center">
+            <td style="color: black"><?= $i ?></td>
+            <td style="color: black"><?= $user['nik']; ?></td>
+            <td style="color: black"><?= $user['nama'] ?></td>
+            <td style="color: black"><?= $user['jabatan'] ?></td>
+            <td style="color: black"><?= date('d-m-Y', strtotime($user['tgl_resign']))?></td>
+            <td style="color: black"><?= $user['resign'] ?></td>
+        </tr>
+        <?php $i++;} ?>
+    </tbody>
+
+</table>
