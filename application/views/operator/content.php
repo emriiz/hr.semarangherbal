@@ -24,7 +24,10 @@
                                 </div>
                                 <div class="stat-content d-inline-block">
                                     <div class="stat-text">Karyawan</div>
-                                    <div class="stat-digit"><?= $totalKaryawan?></div>
+                                    <div class="stat-digit"><?php $this->db->select('*');
+                                                            $this->db->from('tbl_karyawan');
+                                                            $this->db->like('status_aktif', '1');
+                                                            echo $this->db->count_all_results();?></div>
                                 </div>
                             </div>
                         </div>
@@ -40,6 +43,7 @@
                                     <div class="stat-digit"><?php $this->db->select('*');
                                                             $this->db->from('tbl_karyawan');
                                                             $this->db->like('jekel', 'Laki-laki');
+                                                            $this->db->like('status_aktif', '1');
                                                             echo $this->db->count_all_results();?></span></h4></div>
                                 </div>
                             </div>
@@ -56,6 +60,7 @@
                                     <div class="stat-digit"><?php $this->db->select('*');
                                                             $this->db->from('tbl_karyawan');
                                                             $this->db->like('jekel', 'Perempuan');
+                                                            $this->db->like('status_aktif', '1');
                                                             echo $this->db->count_all_results();?></span></h4></div>
                                 </div>
                             </div>
@@ -72,7 +77,67 @@
                                     <div class="stat-digit"><?php $this->db->select('*');
                                                             $this->db->from('tbl_karyawan');
                                                             $this->db->like('status_karyawan', 'Tetap');
+                                                            $this->db->like('status_aktif', '1');
                                                             echo $this->db->count_all_results();?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Kontrak</div>
+                                    <div class="stat-digit"><?php $this->db->select('*');
+                                                            $this->db->from('tbl_karyawan');
+                                                            $this->db->like('status_karyawan', 'Kontrak');
+                                                            $this->db->like('status_aktif', '1');
+                                                            echo $this->db->count_all_results();?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">Resign</div>
+                                    <div class="stat-digit"><?php $this->db->select('*');
+                                                            $this->db->from('tbl_karyawan');
+                                                            $this->db->like('status_aktif', '2');
+                                                            echo $this->db->count_all_results();?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">-</div>
+                                    <div class="stat-digit">-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">-</div>
+                                    <div class="stat-digit">-</div>
                                 </div>
                             </div>
                         </div>
@@ -80,8 +145,8 @@
                 </div>
                 <div class="row">
                     <div class="card-body">
-                                <div class="year-calendar"></div>
-                            </div>
+                        <div class="year-calendar"></div>
+                    </div>
                 </div>
                 <div class="row">
                 </div>

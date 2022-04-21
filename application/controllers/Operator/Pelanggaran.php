@@ -52,6 +52,7 @@ class Pelanggaran extends CI_Controller {
 			$data = array('id_karyawan'  	=> $id_karyawan,
 						  'id_user'			=> $this->session->userdata('id_user'),
 						  'tgl_pelanggaran' => date('Y-m-d', strtotime($i->post('tgl_pelanggaran'))),
+						  'no_surat'		=> $i->post('no_surat'),
 						  'keterangan'		=> $i->post('keterangan'),
 						  'sanksi'			=> $i->post('sanksi')
 					);
@@ -86,6 +87,7 @@ class Pelanggaran extends CI_Controller {
 						  'id_karyawan'  	=> $id_karyawan,
 						  'id_user'			=> $this->session->userdata('id_user'),
 						  'tgl_pelanggaran' => $i->post('tgl_pelanggaran'),
+						  'no_surat'		=> $i->post('no_surat'),
 						  'keterangan'		=> $i->post('keterangan'),
 						  'sanksi'			=> $i->post('sanksi')
 					);

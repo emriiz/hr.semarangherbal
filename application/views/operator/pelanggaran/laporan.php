@@ -56,6 +56,7 @@
                                     <table id="example" class="display" style="min-width: 845px">
                                       <thead>
                                           <tr style="text-align: center">
+                                              <th>No Surat</th>
                                               <th>NIK</th>
                                               <th>Nama</th>
                                               <th>Tanggal</th>
@@ -66,6 +67,7 @@
                                       <tbody>
                                          <?php $i=1; foreach($pelanggaran as $plg ) { ?> 
                                         <tr style="text-align: center; color: black">
+                                          <th><?php echo $plg['no_surat']?></th>
                                           <th><?php echo $plg['nik']?></th>
                                           <th><?php echo $plg['nama']?></th>
                                           <th><?php echo date('d-m-Y', strtotime($plg['tgl_pelanggaran']))?></th>

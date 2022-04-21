@@ -65,7 +65,7 @@
                                                 <th>Jabatan</th>
                                                 <th>Tanggal Resign</th>
                                                 <th>Alasan resign</th>
-                                                <th></th>
+                                                <th style="width: 15%"></th>
                                             </tr>
                                         </thead>
                                        
@@ -81,9 +81,16 @@
                                                 <td style="color: black"><?= $user['nik']; ?></td>
                                                 <td style="color: black"><?= $user['nama'] ?></td>
                                                 <td style="color: black"><?= $user['jabatan'] ?></td>
-                                                <td style="color: black"><?= date('d-m-Y', strtotime($user['tgl_resign']))?></td>
+                                                <?php if(($user['tgl_resign']=="0000-00-00")){?>
+                                                    <td style="color: black">-</td>
+                                                <?php }else{?>
+                                                    <td style="color: black"><?= date('d-m-Y', strtotime($user['tgl_resign']))?></td>
+                                                <?php }?>
                                                 <td style="color: black"><?= $user['resign'] ?></td>
-                                                <td><a href="<?= base_url('operator/karyawan/detail/'.$user['id_karyawan'])?>" class="btn btn-info" value="Detail"><i class="fa fa-eye"></i></a></td>
+                                                <td>
+                                                    <a href="<?= base_url('operator/karyawan/detail/'.$user['id_karyawan'])?>" class="btn btn-info" value="Detail"><i class="fa fa-eye"></i></a>
+                                                    <a href="<?= base_url('operator/karyawan/edit/'.$user['id_karyawan'])?>" class="btn btn-primary" value="Edit"><i class="fa fa-pencil"></i></a>
+                                                </td>
                                             </tr>
                                             <?php $i++;} ?>
                                         </tbody>

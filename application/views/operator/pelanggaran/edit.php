@@ -18,6 +18,12 @@
         		<div class="row">
                   <div class="col-md-12">
                     <div class="form-group row">
+                    <label class="col-md-2 col-form-label" style="color: black">No Surat</label>
+                      <div class="col-md-10 p-0 text-center">
+                        <input type="text" class="form-control" name="no_surat" value="<?php echo $pelanggaran->no_surat?>">
+                      </div>
+                    </div>
+                    <div class="form-group row">
                       <label class="col-md-2 col-form-label" style="color: black">Tanggal</label>
                         <div class="col-md-10 p-0 text-center">
                           <input type="date" class="form-control" name="tgl_pelanggaran" value="<?php echo $pelanggaran->tgl_pelanggaran?>">

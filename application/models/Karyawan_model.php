@@ -77,6 +77,7 @@ class Karyawan_model extends CI_Model {
     		$this->db->where('tgl_resign >', $tglawal);
     		$this->db->where('tgl_resign <', $tglakhir);
     	}
+		$this->db->order_by('id_karyawan','DESC');
     	$this->db->where('status_aktif = 2');
         return $this->db->get('tbl_karyawan')->result_array();
     }
