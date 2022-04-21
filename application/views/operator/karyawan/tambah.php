@@ -154,6 +154,7 @@
                                                       <option value="Assisten Supervisor">Assiten Supervisor</option>
                                                       <option value="Cleaning Services">Cleaning Services</option>
                                                       <option value="Driver">Driver</option>
+                                                      <option value="Ekstrak">Ekstrak</option>
                                                       <option value="Ekspeditor">Ekspeditor</option>
                                                       <option value="Helper">Helper</option>
                                                       <option value="Koordinator">Koordinator</option>
@@ -168,6 +169,7 @@
                                                       <option value="IPC">IPC</option>
                                                       <option value="Accounting">Accounting</option>
                                                       <option value="PG">PG</option>
+                                                      <option value="PG">QC</option>
                                                     </select>
                                                   </div>  
                                                 </div>
@@ -195,12 +197,13 @@
                                                     <option value="Bioetanol">Bioetanol</option>
                                                     <option value="Bioseptik">Bioseptik</option>
                                                     <option value="Boiler">Boiler</option>
-                                                    <option value="Cleaning Services">Cleaning Services</option>
+                                                    <option value="Cleaning Service">Cleaning Service</option>
                                                     <option value="GA">GA</option>
                                                     <option value="Gudang">Gudang</option>
                                                     <option value="HR">HR</option>
                                                     <option value="IPA">IPA</option>
                                                     <option value="IPAL">IPAL</option>
+                                                    <option value="IPC">IPC</option>
                                                     <option value="K3">K3</option>
                                                     <option value="LAB">LAB</option>
                                                     <option value="Laboratorium">Laboratorium</option>

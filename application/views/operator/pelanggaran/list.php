@@ -40,10 +40,10 @@
                                     <table id="example" class="display" style="min-width: 845px">
                                        <thead>
                                           <tr style="text-align: center">
+                                            <th>Tanggal</th>
                                             <th>No Surat</th>
                                             <th>NIK</th>
                                             <th>Nama</th>
-                                            <th>Tanggal</th>
                                             <th>Keterangan</th>
                                             <th>Sanksi</th>
                                             <?php if($this->uri->segment(3) == "") { ?>
@@ -54,6 +54,7 @@
                                       <tbody>
                                          <?php $i=1; foreach($pelanggaran as $plg ) { ?> 
                                         <tr style="text-align: center; color: black">
+                                          <th><?php echo date('d-m-Y', strtotime($plg->tgl_pelanggaran))?></th>
                                           <th><?php echo $plg->no_surat?></th>
                                           <th><?php echo $plg->nik?></th>
                                           <th>
@@ -62,7 +63,6 @@
                                             <sup class="fa fa-link"></sup>
                                             </a>
                                           </th>
-                                          <th><?php echo date('d-m-Y', strtotime($plg->tgl_pelanggaran))?></th>
                                           <th><?php echo $plg->keterangan?></th>
                                           <th><?php echo $plg->sanksi?></th>
                                           <?php if($this->uri->segment(3) == "") { ?>

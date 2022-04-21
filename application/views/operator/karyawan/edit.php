@@ -124,6 +124,7 @@
                                                   <option value="GA" <?php if($karyawan->departemen=="GA"){echo 'selected';}?>>GA</option>
                                                   <option value="Gudang" <?php if($karyawan->departemen=="Gudang"){echo 'selected';}?>>Gudang</option>
                                                   <option value="HR" <?php if($karyawan->departemen=="HR"){echo 'selected';}?>>HR</option>
+                                                  <option value="HR" <?php if($karyawan->departemen=="HRGA-K3"){echo 'selected';}?>>HRGA-K3</option>
                                                   <option value="IPA" <?php if($karyawan->departemen=="IPA"){echo 'selected';}?>>IPA</option>
                                                   <option value="IPAL" <?php if($karyawan->departemen=="IPAL"){echo 'selected';}?>>IPAL</option>
                                                   <option value="K3" <?php if($karyawan->departemen=="K3"){echo 'selected';}?>>K3</option>
@@ -150,9 +151,10 @@
                                                     <option value="Analis"<?php if($karyawan->jabatan=="Analis"){echo 'selected';}?>>Analis</option>
                                                     <option value="Assisten Analis"<?php if($karyawan->jabatan=="Assiten Analis"){echo 'selected';}?>>Assisten Analis</option>
                                                     <option value="Assisten IPC"<?php if($karyawan->jabatan=="Assiten IPC"){echo 'selected';}?>>Assisten IPC</option>
-                                                    <option value="Assisten Supervisor"<?php if($karyawan->jabatan=="Assiten Supervisor"){echo 'selected';}?>>Assiten Supervisor</option>
-                                                    <option value="Cleaning Services"<?php if($karyawan->jabatan=="Cleaning Services"){echo 'selected';}?>>Cleaning Services</option>
+                                                    <option value="Assisten Supervisor"<?php if($karyawan->jabatan=="Assisten Supervisor"){echo 'selected';}?>>Assisten Supervisor</option>
+                                                    <option value="Cleaning Service"<?php if($karyawan->jabatan=="Cleaning Service"){echo 'selected';}?>>Cleaning Service</option>
                                                     <option value="Driver"<?php if($karyawan->jabatan=="Driver"){echo 'selected';}?>>Driver</option>
+                                                    <option value="Ekstrak"<?php if($karyawan->jabatan=="Ekstrak"){echo 'selected';}?>>Ekstrak</option>
                                                     <option value="Ekspeditor"<?php if($karyawan->jabatan=="Ekspeditor"){echo 'selected';}?>>Ekspeditor</option>
                                                     <option value="Helper"<?php if($karyawan->jabatan=="Helper"){echo 'selected';}?>>Helper</option>
                                                     <option value="Koordinator"<?php if($karyawan->jabatan=="Koordinator"){echo 'selected';}?>>Koordinator</option>
@@ -164,6 +166,10 @@
                                                     <option value="Staff HR"<?php if($karyawan->jabatan=="Staff HR"){echo 'selected';}?>>Staff HR</option>
                                                     <option value="Staff K3"<?php if($karyawan->jabatan=="Staff K3"){echo 'selected';}?>>Staff K3</option>
                                                     <option value="Teknisi"<?php if($karyawan->jabatan=="Teknisi"){echo 'selected';}?>>Teknisi</option>
+                                                    <option value="IPC"<?php if($karyawan->jabatan=="IPC"){echo 'selected';}?>>IPC</option>
+                                                    <option value="Accounting"<?php if($karyawan->jabatan=="Accounting"){echo 'selected';}?>>Accounting</option>
+                                                    <option value="PG"<?php if($karyawan->jabatan=="PG"){echo 'selected';}?>>PG</option>
+                                                    <option value="QC"<?php if($karyawan->jabatan=="QC"){echo 'selected';}?>>QC</option>
                                                   </select>
                                                 </div>
                                               </div>
@@ -190,18 +196,20 @@
                                                   <option value="Bioseptik" <?php if($karyawan->lok_kerja=="Bioseptik"){echo 'selected';}?>>Bioseptik</option>
                                                   <option value="Boiler" <?php if($karyawan->lok_kerja=="Boiler"){echo 'selected';}?>>Boiler</option>
                                                   <option value="Cleaning Services" <?php if($karyawan->lok_kerja=="Cleaning Services"){echo 'selected';}?>>Cleaning Services</option>
+                                                  <option value="Ekstrak" <?php if($karyawan->lok_kerja=="Ekstrak"){echo 'selected';}?>>Ekstrak</option>
                                                   <option value="GA" <?php if($karyawan->lok_kerja=="GA"){echo 'selected';}?>>GA</option>
                                                   <option value="Gudang" <?php if($karyawan->lok_kerja=="Gudang"){echo 'selected';}?>>Gudang</option>
                                                   <option value="HR" <?php if($karyawan->lok_kerja=="HR"){echo 'selected';}?>>HR</option>
                                                   <option value="IPA" <?php if($karyawan->lok_kerja=="IPA"){echo 'selected';}?>>IPA</option>
                                                   <option value="IPAL" <?php if($karyawan->lok_kerja=="IPAL"){echo 'selected';}?>>IPAL</option>
+                                                  <option value="IPC" <?php if($karyawan->lok_kerja=="IPC"){echo 'selected';}?>>IPC</option>
                                                   <option value="K3" <?php if($karyawan->lok_kerja=="K3"){echo 'selected';}?>>K3</option>
                                                   <option value="LAB" <?php if($karyawan->lok_kerja=="LAB"){echo 'selected';}?>>LAB</option>
                                                   <option value="Laboratorium" <?php if($karyawan->lok_kerja=="Laboratorium"){echo 'selected';}?>>Laboratorium</option>
                                                   <option value="LP" <?php if($karyawan->lok_kerja=="LP"){echo 'selected';}?>>LP</option>
                                                   <option value="Marketing" <?php if($karyawan->lok_kerja=="Marketing"){echo 'selected';}?>>Marketing</option>
                                                   <option value="Pabrik" <?php if($karyawan->lok_kerja=="Pabrik"){echo 'selected';}?>>Pabrik</option>
-                                                  <option value="Pelet" <?php if($karyawan->lok_kerja=="Pelet"){echo 'selected';}?>>PELET</option>
+                                                  <option value="Pelet" <?php if($karyawan->lok_kerja=="Pelet"){echo 'selected';}?>>Pelet</option>
                                                   <option value="Produksi" <?php if($karyawan->lok_kerja=="Produksi"){echo 'selected';}?>>Produksi</option>
                                                   <option value="Proper" <?php if($karyawan->lok_kerja=="Proper"){echo 'selected';}?>>Proper</option>
                                                   <option value="QA" <?php if($karyawan->lok_kerja=="QA"){echo 'selected';}?>>QA</option>
@@ -255,13 +263,14 @@
                                             <!-- /.form-group Alamat -->
                                             <div class="form-group">
                                               <label style="color: black">Alamat Sesuai KTP</label>
-                                              <textarea class="form-control" rows="3" value="<?php echo set_value('alamat_ktp')?>"><?php echo $karyawan->alamat_ktp?>"</textarea>
-                                             <!--  <input type="text" name="alamat_ktp" class="form-control" rows="2" name="alamat_ktp" value="<?php echo $karyawan->alamat_ktp?>"> -->
+                                              <!-- <textarea class="form-control" rows="3" value="<?php echo $karyawan->alamat_ktp?>"><?php echo $karyawan->alamat_ktp?></textarea> -->
+                                              <input type="text" name="alamat_ktp" class="form-control" rows="2" value="<?php echo $karyawan->alamat_ktp?>">
                                             </div>
                                             <!-- /.form-group Alamat Domisili -->
                                             <div class="form-group">
                                               <label style="color: black">Alamat Domisili</label>
-                                             <textarea class="form-control" rows="3" value="<?php echo set_value('alamat_dom')?>"><?php echo $karyawan->alamat_ktp?>"</textarea>
+                                             <!-- <textarea class="form-control" rows="3" value="<?php echo $karyawan->alamat_dom?>"><?php echo $karyawan->alamat_dom?></textarea> -->
+                                             <input type="text" name="alamat_dom" class="form-control" rows="2" value="<?php echo $karyawan->alamat_dom?>">
                                             </div>
                                             <!-- /.form-group No HP -->
                                             <div class="form-group">

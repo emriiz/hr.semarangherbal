@@ -80,105 +80,205 @@
                                                             <h5 class="f-w-500">NIK <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->nik?></span>
-                                                        </div>
+                                                        <?php if($karyawan->nik==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->nik?></span>
+                                                        <?php }?>
+                                                    </div>
                                                     </div>
                                                     <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Tempat, Tanggal Lahir <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->tmpt_lahir?>, <?= date('j F Y', strtotime($karyawan->tgl_lahir))?></span>
-                                                        </div>
+                                                        <?php if($karyawan->tmpt_lahir==null && $karyawan->tgl_lahir=='0000-00-00'){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->tmpt_lahir?>, <?= date('j F Y', strtotime($karyawan->tgl_lahir))?></span></div>
+                                                        <?php }?>
                                                     </div>
                                                      <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Usia <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->umur?> Tahun</span>
-                                                        </div>
+                                                        <?php if($karyawan->umur==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->umur?> Tahun</span></div>
+                                                        <?php }?>
                                                     </div>
                                                     <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Jenis Kelamin <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->jekel?></span>
+                                                        <?php if($karyawan->jekel==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->jekel?></span></div>
+                                                        <?php }?>
+                                                    </div>
+                                                    <div class="row mb-8">
+                                                        <div class="col-3">
+                                                            <h5 class="f-w-500">Alamat KTP <span class="pull-right">:</span>
+                                                            </h5>
                                                         </div>
+                                                        <?php if($karyawan->alamat_ktp==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->alamat_ktp?></span></div>
+                                                        <?php }?>
+                                                    </div>
+                                                    <div class="row mb-8">
+                                                        <div class="col-3">
+                                                            <h5 class="f-w-500">Alamat Domisili <span class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <?php if($karyawan->alamat_dom==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->alamat_dom?></span></div>
+                                                        <?php }?>
                                                     </div>
                                                     <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Email <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->email?></span>
-                                                        </div>
+                                                        <?php if($karyawan->email==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->email?></span></div>
+                                                        <?php }?>
                                                     </div>
                                                      <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">No Handphone <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->cp?></span>
-                                                        </div>
+                                                        <?php if($karyawan->cp==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->cp?></span></div>
+                                                        <?php }?>
                                                     </div>
                                                     <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Agama <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->agama?></span>
-                                                        </div>
+                                                        <?php if($karyawan->agama==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->agama?></span></div>
+                                                        <?php }?>
                                                     </div>
                                                      <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Status Martial <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->status_menikah?></span>
-                                                        </div>
+                                                        <?php if($karyawan->status_menikah==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->status_menikah?></span></div>
+                                                        <?php }?>
                                                     </div>
                                                     <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Pendidikan Terakhir<span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->pendidikan?></span>
-                                                        </div>
+                                                        <?php if($karyawan->pendidikan==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->pendidikan?></span></div>
+                                                        <?php }?>
                                                     </div>
                                                      <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Status Kerja <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->status_kerja?></span>
-                                                        </div>
+                                                        <?php if($karyawan->status_kerja==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->status_kerja?></span></div>
+                                                        <?php }?>
                                                     </div>
                                                      <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Status Karyawan <span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->status_karyawan?></span>
-                                                        </div>
+                                                        <?php if($karyawan->status_karyawan==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->status_karyawan?></span></div>
+                                                        <?php }?>
                                                     </div>
                                                     <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Lokasi Kerja<span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= $karyawan->lok_kerja?></span>
-                                                        </div>
+                                                        <?php if($karyawan->lok_kerja==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->lok_kerja?></span></div>
+                                                        <?php }?>
                                                     </div>
-                                                    <div class="row mb-4">
+                                                    <div class="row mb-8">
                                                         <div class="col-3">
                                                             <h5 class="f-w-500">Tanggal Join<span class="pull-right">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-9"><span style="color: black"><?= date('j F Y', strtotime($karyawan->tgl_join));?></span>
-                                                        </div>
+                                                        <?php if(($karyawan->tgl_join)=='0000-00-00'){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>                                                     
+                                                            <?php }else{?>
+                                                                <div class="col-9"><span style="color: black"><?= date('j F Y', strtotime($karyawan->tgl_join));?></span></div>                                                        
+                                                            <?php }?>
                                                     </div>
+                                                    <div class="row mb-8">
+                                                        <div class="col-3">
+                                                            <h5 class="f-w-500">Tanggal Tetap<span class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <?php if(($karyawan->tgl_tetap)=='0000-00-00'){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>  
+                                                                <div class="col-9"><span style="color: black"><?= date('j F Y', strtotime($karyawan->tgl_tetap));?></span>
+                                                                </div>
+                                                        <?php }?>
+                                                    </div>
+                                                    <?php if(($karyawan->status_aktif)=='2'){?>
+                                                    <div class="row mb-8">
+                                                        <div class="col-3">
+                                                            <h5 class="f-w-500">Tanggal Resign<span class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <?php if(($karyawan->tgl_resign)=='0000-00-00'){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>  
+                                                            <div class="col-9"><span style="color: black"><?= date('j F Y', strtotime($karyawan->tgl_resign));?></span>
+                                                        </div>
+                                                        <?php }?>
+                                                    </div>
+                                                    <div class="row mb-8">
+                                                        <div class="col-3">
+                                                            <h5 class="f-w-500">Alasan Resign<span class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <?php if($karyawan->resign==null){?>
+                                                            <div class="col-9"><span style="color: black">-</span></div>
+                                                        <?php }else{?>
+                                                            <div class="col-9"><span style="color: black"><?= $karyawan->resign?></span></div>
+                                                        <?php }?>
+                                                    </div>
+                                                    <?php }else{?>
+                                                    <?php }?>
                                                 </div>
 					                                    
 					                                </div>

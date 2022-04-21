@@ -352,7 +352,7 @@
     </script>
     <script>
         function jam() {
-    var time = new Date(),
+        var time = new Date(),
         hours = time.getHours(),
         minutes = time.getMinutes(),
         seconds = time.getSeconds();
