@@ -55,7 +55,7 @@
                                         <tr style="text-align: center; color: black">
                                             <th><?php echo $cuti->nik?></th>
                                             <th>
-                                              <a href="<?php echo base_url('operator/cuti/add/'.$cuti->id_karyawan)?>" style="color: blue">
+                                              <a href="<?php echo base_url('Operator/Cuti/add/'.$cuti->id_karyawan)?>" style="color: blue">
                                               <?php echo $cuti->nama?>
                                               <sup class="fa fa-link"></sup></a>
                                             </th>
@@ -64,7 +64,7 @@
                                             <th><?php echo $cuti->jml_hari?></th>
                                             <?php if($this->uri->segment(3) == "") { ?>
                                             <th>
-                                                <a href="<?= base_url('operator/cuti/edit'.$cuti->id_cuti)?>" class="btn btn-secondary"><i class="fa fa-pencil"></i></a>
+                                                <a href="<?= base_url('Operator/Cuti/edit'.$cuti->id_cuti)?>" class="btn btn-secondary"><i class="fa fa-pencil"></i></a>
                                                 <?php include('delete.php')?>
                                             </th>   
                                         <?php }?>

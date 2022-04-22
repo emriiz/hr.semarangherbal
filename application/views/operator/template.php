@@ -23,7 +23,7 @@
     <style type="text/css" media="screen">
         .jam {
         font-size: 1em;
-        border: 1px solid #d35400;
+        
         border-radius: 5px;
         padding: 5px;
      }
@@ -88,7 +88,7 @@
                             <i class="mdi mdi-account"> <?= $this->session->userdata('nama');?></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="<?= base_url('operator/home/ubah_password')?>" class="dropdown-item">
+                            <a href="<?= base_url('Operator/Home/ubah_password')?>" class="dropdown-item">
                                 <i class="icon-key"></i>
                                 <span class="ml-2">Ubah Password </span>
                             </a>
@@ -115,7 +115,7 @@
                     <li class="nav-label first">Main Menu</li>
                     <!-- <li><a href="index.html"><i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                     </li> -->
-                    <li><a href="<?= base_url('operator/home')?>" aria-expanded="false">
+                    <li><a href="<?= base_url('Operator/Home')?>" aria-expanded="false">
                         <i class="icon icon-home"></i><span class="nav-text">Dashboard</span></a>
                     </li>
                     <?php if($this->session->userdata('hak_akses')==2){?>
@@ -125,85 +125,85 @@
                         <ul aria-expanded="false">
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Data Karyawan</a>
                                 <ul aria-expanded="false">
-                                    <li><a href="<?= base_url('operator/karyawan')?>">Aktif</a></li>
-                                    <li><a href="<?= base_url('operator/karyawan/non_aktif')?>">Non Aktif</a></li>
+                                    <li><a href="<?= base_url('Operator/Karyawan')?>">Aktif</a></li>
+                                    <li><a href="<?= base_url('Operator/Karyawan/non_aktif')?>">Non Aktif</a></li>
                                 </ul>
                             </li>
-                            <li><a href="<?= base_url('operator/karyawan/tambah')?>">Tambah Data</a></li>
-                            <li><a href="<?= base_url('operator/karyawan/laporan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('Operator/Karyawan/tambah')?>">Tambah Data</a></li>
+                            <li><a href="<?= base_url('Operator/Karyawan/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-calendar-check-o" aria-hidden="true"></i><span class="nav-text">Kontrak Karyawan</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/kontrak')?>">Data Kontrak Karyawan</a></li>
-                            <li><a href="<?= base_url('operator/kontrak/list_karyawan')?>">Tambah Data</a></li>
-                            <li><a href="<?= base_url('operator/kontrak/laporan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('Operator/Kontrak')?>">Data Kontrak Karyawan</a></li>
+                            <li><a href="<?= base_url('Operator/Kontrak/list_karyawan')?>">Tambah Data</a></li>
+                            <li><a href="<?= base_url('Operator/Kontrak/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-calendar" aria-hidden="true"></i><span class="nav-text">Cuti</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/cuti')?>">Data Cuti</a></li>
-                            <li><a href="<?= base_url('operator/cuti/list')?>">Tambah Data</a></li>
-                            <li><a href="<?= base_url('operator/cuti/laporan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('Operator/Cuti')?>">Data Cuti</a></li>
+                            <li><a href="<?= base_url('Operator/Cuti/list')?>">Tambah Data</a></li>
+                            <li><a href="<?= base_url('Operator/Cuti/laporan')?>">Laporan</a></li>
                             <!-- <li><a href="#">Setting</a></li> -->
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-paper-plane-o" aria-hidden="true"></i><span class="nav-text">Izin</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/ijin')?>">Data Izin</a></li>
-                            <li><a href="<?= base_url('operator/ijin/list')?>">Tambah Data</a></li>
-                            <li><a href="<?= base_url('operator/ijin/laporan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('Operator/Ijin')?>">Data Izin</a></li>
+                            <li><a href="<?= base_url('Operator/Ijin/list')?>">Tambah Data</a></li>
+                            <li><a href="<?= base_url('Operator/Ijin/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
-                    <li><a href="<?= base_url('operator/absensi')?>" aria-expanded="false">
+                    <li><a href="<?= base_url('Operator/Absensi')?>" aria-expanded="false">
                         <i class="fa fa-address-book-o" aria-hidden="true"></i><span class="nav-text">Absensi</span></a>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="nav-text">Pelanggaran</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/pelanggaran')?>">Data Pelanggaran</a></li>
-                            <li><a href="<?= base_url('operator/pelanggaran/list')?>">Tambah Data</a></li>                            
-                            <li><a href="<?= base_url('operator/pelanggaran/laporan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('Operator/Pelanggaran')?>">Data Pelanggaran</a></li>
+                            <li><a href="<?= base_url('Operator/Pelanggaran/list')?>">Tambah Data</a></li>                            
+                            <li><a href="<?= base_url('Operator/Pelanggaran/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                      <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-calculator" aria-hidden="true"></i><span class="nav-text">Lembur</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/lembur')?>">Data Lembur</a></li>
-                            <li><a href="<?= base_url('operator/lembur/list')?>">Tambah Data</a></li>                            
-                            <li><a href="<?= base_url('operator/lembur/laporan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('Operator/Lembur')?>">Data Lembur</a></li>
+                            <li><a href="<?= base_url('Operator/Lembur/list')?>">Tambah Data</a></li>                            
+                            <li><a href="<?= base_url('Operator/Lembur/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                     <?php }else{?>
                          <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-calendar" aria-hidden="true"></i><span class="nav-text">Cuti</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/cuti')?>">Data Cuti</a></li>
-                            <li><a href="<?= base_url('operator/cuti/list')?>">Tambah Data</a></li>
-                            <li><a href="<?= base_url('operator/cuti/laporan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('Operator/Cuti')?>">Data Cuti</a></li>
+                            <li><a href="<?= base_url('Operator/Cuti/list')?>">Tambah Data</a></li>
+                            <li><a href="<?= base_url('Operator/Cuti/laporan')?>">Laporan</a></li>
                            <!--  <li><a href="#">Setting</a></li> -->
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-paper-plane-o" aria-hidden="true"></i><span class="nav-text">Izin</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/ijin')?>">Data Izin</a></li>
-                            <li><a href="<?= base_url('operator/ijin/list')?>">Tambah Data</a></li>
-                            <li><a href="<?= base_url('operator/ijin/laporan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('Operator/Ijin')?>">Data Izin</a></li>
+                            <li><a href="<?= base_url('Operator/Ijin/list')?>">Tambah Data</a></li>
+                            <li><a href="<?= base_url('Operator/Ijin/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
-                    <li><a href="<?= base_url('operator/absensi')?>" aria-expanded="false">
+                    <li><a href="<?= base_url('Operator/Absensi')?>" aria-expanded="false">
                         <i class="fa fa-address-book-o" aria-hidden="true"></i><span class="nav-text">Absensi</span></a>
                     </li>
                      <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-calculator" aria-hidden="true"></i><span class="nav-text">Lembur</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('operator/lembur')?>">Data Lembur</a></li>
-                            <li><a href="<?= base_url('operator/lembur/list')?>">Tambah Data</a></li>                            
-                            <li><a href="<?= base_url('operator/lembur/laporan')?>">Laporan</a></li>
+                            <li><a href="<?= base_url('Operator/Lembur')?>">Data Lembur</a></li>
+                            <li><a href="<?= base_url('Operator/Lembur/list')?>">Tambah Data</a></li>                            
+                            <li><a href="<?= base_url('Operator/Lembur/laporan')?>">Laporan</a></li>
                         </ul>
                     </li>
                     <?php }?>    
@@ -356,7 +356,7 @@
         hours = time.getHours(),
         minutes = time.getMinutes(),
         seconds = time.getSeconds();
-    document.querySelectorAll('.jam')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+        document.querySelectorAll('.jam')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
       
     function harold(standIn) {
         if (standIn < 10) {

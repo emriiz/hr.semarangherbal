@@ -45,9 +45,9 @@
                                         $tglakhir = $this->input->get('tglakhir');
                                         ?>
                                         <?php if($tglawal && $tglakhir){?>
-                                            <a href="<?= base_url('operator/ijin/export?tglawal=' . $tglawal . '&tglakhir=' . $tglakhir);?>" class="btn btn-secondary btn-sm">Export</a>
+                                            <a href="<?= base_url('Operator/Ijin/export?tglawal=' . $tglawal . '&tglakhir=' . $tglakhir);?>" class="btn btn-secondary btn-sm">Export</a>
                                         <?php }else{?>
-                                            <a href="<?= base_url('operator/ijin/export')?>" class="btn btn-secondary btn-sm">Export</a>
+                                            <a href="<?= base_url('Operator/Ijin/export')?>" class="btn btn-secondary btn-sm">Export</a>
                                         <?php }?> 
                                     </div>
                                 </div>

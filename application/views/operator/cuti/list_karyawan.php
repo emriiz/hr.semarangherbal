@@ -54,7 +54,7 @@
                                                 <td style="color: black"><?= $user->nik ?></td>
                                                 <td style="color: black"><?= $user->nama ?></td>
                                                 <td>
-                                                    <a href="<?php echo base_url('operator/cuti/add/'.$user->id_karyawan);?>" class="btn btn-secondary">Pilih</a>
+                                                    <a href="<?php echo base_url('Operator/Cuti/add/'.$user->id_karyawan);?>" class="btn btn-secondary">Pilih</a>
                                                 </td>
                                             </tr>
                                             <?php $i++;} ?>

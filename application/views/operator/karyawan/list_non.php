@@ -45,9 +45,9 @@
                                             $tglakhir = $this->input->get('tglakhir');
                                         ?>
                                         <?php if($tglawal && $tglakhir){?>
-                                            <a href="<?= base_url('operator/karyawan/export?tglawal=' . $tglawal . '&tglakhir=' . $tglakhir);?>" class="btn btn-secondary btn-sm">Export</a>
+                                            <a href="<?= base_url('Operator/Karyawan/export?tglawal=' . $tglawal . '&tglakhir=' . $tglakhir);?>" class="btn btn-secondary btn-sm">Export</a>
                                         <?php }else{?>
-                                            <a href="<?= base_url('operator/karyawan/export')?>" class="btn btn-secondary btn-sm">Export</a>
+                                            <a href="<?= base_url('Operator/Karyawan/export')?>" class="btn btn-secondary btn-sm">Export</a>
                                         <?php }?>  
                                     </div>
                                </form>
@@ -76,7 +76,7 @@
                                                  <?php if(($user['foto'])== NULL){?>
                                                     <td><img src="<?php echo base_url();?>assets/images/default.jpg" width="20%"></td>
                                                   <?php }else{?>
-                                                    <td><img src="<?php echo base_url();?>assets/foto/<?php echo $user->foto;?>" width="60"></td>
+                                                    <td><img src="<?php echo base_url();?>assets/foto/<?php echo $user['foto'];?>" width="60"></td>
                                                   <?php }?>
                                                 <td style="color: black"><?= $user['nik']; ?></td>
                                                 <td style="color: black"><?= $user['nama'] ?></td>
@@ -88,8 +88,8 @@
                                                 <?php }?>
                                                 <td style="color: black"><?= $user['resign'] ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('operator/karyawan/detail/'.$user['id_karyawan'])?>" class="btn btn-info" value="Detail"><i class="fa fa-eye"></i></a>
-                                                    <a href="<?= base_url('operator/karyawan/edit/'.$user['id_karyawan'])?>" class="btn btn-primary" value="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="<?= base_url('Operator/Karyawan/detail/'.$user['id_karyawan'])?>" class="btn btn-info" value="Detail"><i class="fa fa-eye"></i></a>
+                                                    <a href="<?= base_url('Operator/Karyawan/edit/'.$user['id_karyawan'])?>" class="btn btn-primary" value="Edit"><i class="fa fa-pencil"></i></a>
                                                 </td>
                                             </tr>
                                             <?php $i++;} ?>

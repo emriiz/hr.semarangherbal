@@ -54,11 +54,7 @@
                                                 <th>Duty Off</th>
                                                 <th>Jam Masuk</th>
                                                 <th>Jam Pulang</th>
-                                                <th>Shift</th>
                                                 <th>Kehadiran</th>
-                                                <th>Jenis Ijin</th>
-                                                <th>-</th>
-                                                <th>-</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
@@ -84,26 +80,10 @@
                                                 	<td style="color: black"><?= date('H:i', strtotime($user['a_duty_off'])) ?></td>
                                                 <?php }?>
 
-                                                <td style="color: black"><?= $user['wh_shift'] ?></td>
-
                                                 <?php if(($user['a_code']=='')){?>
                                                 	<td style="color: black">-</td>
                                                 <?php }else{?>
                                                 	<td style="color: black"><?= $user['a_code'] ?></td>
-                                                <?php }?>
-
-                                                 <?php if(($user['permit']==null)){?>
-                                                	<td style="color: black">-</td>
-                                                <?php }else{?>
-                                                	<td style="color: black"><?= $user['permit'] ?></td>
-                                                <?php }?>
-
-                                                <?php if(($user['permit_on']=="0000-00-00 00:00:00" && $user['permit_off']=="0000-00-00 00:00:00" )){?>
-                                                	<td style="color: black">-</td>
-                                                	<td style="color: black">-</td>
-                                                <?php }else{ ?>
-                                                	<td style="color: black"><?= date('d F Y H:i', strtotime($user['permit_on'])) ?></td>
-                                                	<td style="color: black"><?= date('d F Y H:i', strtotime($user['permit_off'])) ?></td>
                                                 <?php }?>
 
                                                 <?php if(($user['a_code'] ==null)){?>

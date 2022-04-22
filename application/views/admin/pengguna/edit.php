@@ -20,7 +20,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="<?= base_url('admin/user/edit/'.$user->id_user)?>" method="post">
+                                    <form class="form-valide" action="<?= base_url('Admin/User/edit/'.$user->id_user)?>" method="post">
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="col-12" style="text-align: center">
                                                 <button type="submit" class="btn btn-rounded btn-primary">Simpan</button>
-                                                <a href="<?= base_url('admin/user')?>" class="btn btn-rounded btn-dark">Batal</a>
+                                                <a href="<?= base_url('Admin/User')?>" class="btn btn-rounded btn-dark">Batal</a>
                                             </div>
                                         </div>
                                     </form>

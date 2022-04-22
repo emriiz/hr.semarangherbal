@@ -13,7 +13,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <a class="btn btn-danger" href="<?php echo base_url('operator/lembur/delete/'.$lbr->id_lembur) ?>">Hapus</a>
+                <a class="btn btn-danger" href="<?php echo base_url('Operator/Lembur/delete/'.$lbr->id_lembur) ?>">Hapus</a>
             </div>
         </div>
     </div>

@@ -43,9 +43,9 @@
                                             $tglakhir = $this->input->get('tglakhir');
                                         ?>
                                         <?php if($tglawal && $tglakhir){?>
-                                            <a href="<?= base_url('operator/cuti/export?tglawal=' . $tglawal . '&tglakhir=' . $tglakhir);?>" class="btn btn-secondary btn-sm">Export</a>
+                                            <a href="<?= base_url('Operator/Cuti/export?tglawal=' . $tglawal . '&tglakhir=' . $tglakhir);?>" class="btn btn-secondary btn-sm">Export</a>
                                         <?php }else{?>
-                                            <a href="<?= base_url('operator/cuti/export')?>" class="btn btn-secondary btn-sm">Export</a>
+                                            <a href="<?= base_url('Operator/Cuti/export')?>" class="btn btn-secondary btn-sm">Export</a>
                                         <?php }?>   
                                 </div>
                                </form>

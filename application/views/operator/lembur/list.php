@@ -56,7 +56,7 @@
                                          <!--  <th><?= $i?></th> -->
                                           <th><?php echo $lbr->nik?></th>
                                           <th>
-                                            <a href="<?php echo base_url('operator/lembur/add/'.$lbr->id_karyawan)?>" style="color: blue">
+                                            <a href="<?php echo base_url('Operator/Lembur/add/'.$lbr->id_karyawan)?>" style="color: blue">
                                             <?php echo $lbr->nama?>
                                             <i class="fa fa-link"></i>
                                             </a>
@@ -67,7 +67,7 @@
                                           <!-- <th><?php echo $lbr->keterangan?></th> -->
                                         <?php if($this->uri->segment(3) == "") { ?>
                                           <th>
-                                            <a href="<?php echo base_url('operator/lembur/edit/'.$lbr->id_lembur)?>" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
+                                            <a href="<?php echo base_url('Operator/Lembur/edit/'.$lbr->id_lembur)?>" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
                                             <?php include('delete.php')?>
                                           </th>
                                         <?php }?>

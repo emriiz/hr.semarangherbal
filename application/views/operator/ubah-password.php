@@ -29,7 +29,7 @@
                         ?>   
           			
           			<div class="card-body">
-          				<form action="<?= base_url('operator/home/ubah_password')?>" method="POST" accept-charset="utf-8">
+          				<form action="<?= base_url('Operator/Home/ubah_password')?>" method="POST" accept-charset="utf-8">
           					<div class="row">
           						<div class="col-md-3">
           							<label style="color: black"><b>Password Lama</b><sup style="color: red">*</sup></label>
@@ -57,7 +57,7 @@
           					<div class="row mt-3">
           						<div class="col-12" style="text-align: center">
           							<button type="submit" class="btn btn-secondary">Simpan</button>
-          							<a href="<?= base_url('operator/home')?>" class="btn btn-dark ml-1">Kembali</a>
+          							<a href="<?= base_url('Operator/Home')?>" class="btn btn-dark ml-1">Kembali</a>
           						</div>
           					</div>
           				</form>

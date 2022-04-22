@@ -20,7 +20,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="<?= base_url('admin/user/tambah')?>" method="post">
+                                    <form class="form-valide" action="<?= base_url('Admin/User/tambah')?>" method="post">
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">

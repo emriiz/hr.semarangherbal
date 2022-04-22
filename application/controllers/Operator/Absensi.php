@@ -22,12 +22,13 @@ class Absensi extends CI_Controller {
 			$this->load->view('operator/template', $data);
 		} else{
 			$this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
-			redirect('login','refresh');
+			redirect('Login','refresh');
 		}
 	}
 
 	 public function uploaddata()
     {
+        if($this->session->userdata('status') == TRUE){
         $config['upload_path'] = './assets/uploads/';
         $config['allowed_types'] = 'xlsx|xls';
         $config['file_name'] = 'doc' . time();
@@ -70,11 +71,15 @@ class Absensi extends CI_Controller {
                 $reader->close();
                 unlink('./assets/uploads/' . $file['file_name']);
                 $this->session->set_flashdata('success', '<b>import Data Berhasil</b>');
-                redirect('operator/absensi');
+                redirect('Operator/Absensi');
             }
         } else {
             echo "Error :" . $this->upload->display_errors();
         };
+    } else{
+        $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
+        redirect('Login','refresh');
+    }
     }
 
 }

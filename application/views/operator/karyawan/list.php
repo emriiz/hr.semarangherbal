@@ -30,7 +30,7 @@
                             }
                         ?>   
                             <div class="card-header">
-                                <?= form_open_multipart('operator/karyawan/uploaddata') ?>
+                                <?= form_open_multipart('Operator/Karyawan/uploaddata') ?>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input type="file" class="form-control-file" id="importexcel" name="importexcel" accept=".xlsx,.xls">
@@ -67,8 +67,8 @@
                                                 <td style="color: black"><?= $user->nik ?></td>
                                                 <td style="color: black"><?= $user->nama ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('operator/karyawan/detail/'.$user->id_karyawan)?>" class="btn btn-info" value="Detail"><i class="fa fa-eye"></i></a>
-                                                    <a href="<?= base_url('operator/karyawan/edit/'.$user->id_karyawan)?>" class="btn btn-primary" value="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="<?= base_url('Operator/Karyawan/detail/'.$user->id_karyawan)?>" class="btn btn-info" value="Detail"><i class="fa fa-eye"></i></a>
+                                                    <a href="<?= base_url('Operator/Karyawan/edit/'.$user->id_karyawan)?>" class="btn btn-primary" value="Edit"><i class="fa fa-pencil"></i></a>
                                                      <?php include('delete.php')?>
                                                 </td>
                                             </tr>

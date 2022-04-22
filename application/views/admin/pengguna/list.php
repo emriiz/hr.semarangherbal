@@ -50,7 +50,7 @@
                                                 <td style="color: black"><?= $pengguna->nama ?></td>
                                                 <td style="color: black"><?= $pengguna->email ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('admin/user/edit/'.$pengguna->id_user)?>" class="btn btn-primary btn-sm" value="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="<?= base_url('Admin/User/edit/'.$pengguna->id_user)?>" class="btn btn-primary btn-sm" value="Edit"><i class="fa fa-pencil"></i></a>
                                                      <?php include('delete.php')?>
                                                 </td>
                                             </tr>

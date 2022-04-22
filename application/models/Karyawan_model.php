@@ -68,6 +68,8 @@ class Karyawan_model extends CI_Model {
     		$this->db->where('tgl_join >', $tglawal);
     		$this->db->where('tgl_join <', $tglakhir);
     	}
+		$this->db->order_by('id_karyawan','DESC');
+    	$this->db->where('status_aktif = 1');
         return $this->db->get('tbl_karyawan')->result_array();
     }
 
@@ -94,21 +96,6 @@ class Karyawan_model extends CI_Model {
 	      return 0;
 	    }
 	}
-
-	// public function totalPria()
-	// {   
-	// 	$this->db->where('jekel = Laki-laki');
-	//     $query = $this->db->get('tbl_karyawan');
-	//     if($query->num_rows()>0)
-	//     {
-	//       return $query->num_rows();
-	//     }
-	//     else
-	//     {
-	//       return 0;
-	//     }
-	// }
-
 }
 
 /* End of file Karyawan_model.php */

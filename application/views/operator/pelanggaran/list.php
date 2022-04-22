@@ -58,7 +58,7 @@
                                           <th><?php echo $plg->no_surat?></th>
                                           <th><?php echo $plg->nik?></th>
                                           <th>
-                                            <a href="<?php echo base_url('operator/pelanggaran/add/'.$plg->id_karyawan)?>" style="color: blue">
+                                            <a href="<?php echo base_url('Operator/Pelanggaran/add/'.$plg->id_karyawan)?>" style="color: blue">
                                             <?php echo $plg->nama?>
                                             <sup class="fa fa-link"></sup>
                                             </a>
@@ -67,7 +67,7 @@
                                           <th><?php echo $plg->sanksi?></th>
                                           <?php if($this->uri->segment(3) == "") { ?>
                                           <th>
-                                              <a href="<?= base_url('operator/pelanggaran/edit/'.$plg->id_pelanggaran)?>" class="btn btn-secondary" value="Edit Data"><i class="fa fa-pencil"></i></a>
+                                              <a href="<?= base_url('Operator/Pelanggaran/edit/'.$plg->id_pelanggaran)?>" class="btn btn-secondary" value="Edit Data"><i class="fa fa-pencil"></i></a>
                                              <?php include('delete.php');?>
                                           </th>
                                           <?php }?>

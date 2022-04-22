@@ -53,25 +53,25 @@ class Login extends CI_Controller {
 				if(($data->hak_akses) == 1){
 						
 					$this->session->set_flashdata('success', 'Selamat anda login ke halaman admin');
-					redirect('admin/home','refresh');
+					redirect('Admin/Home','refresh');
 						
 					}else if(($data->hak_akses) == 2){
 						$this->session->set_flashdata('success', 'Selamat anda login ke halaman Operator');
-					     redirect('operator/home','refresh');
+					     redirect('Operator/Home','refresh');
 						
 					}else{
 						$this->session->set_flashdata('success', 'Selamat anda login ke halaman Operator');
-					     redirect('operator/home','refresh');
+					     redirect('Operator/Home','refresh');
 					}
 			} else {
 				// alert untuk menampilkan sebuah pesan gagal login
 				$this->session->set_flashdata('alert', 'Username dan Password Salah');
-				redirect(base_url('login'),'refresh');
+				redirect(base_url('Login'),'refresh');
 			}
 		} else {
 			// tetap berada dihalaman login
 			$this->session->set_flashdata('alert', 'Username dan Password Salah');
-			redirect('login');
+			redirect('Login');
 		}
 	}
 
@@ -79,7 +79,7 @@ class Login extends CI_Controller {
 	$this->session->set_userdata('email', FALSE);
 	$this->session->set_flashdata('success', 'Anda telah logout dari aplikasi');
 	$this->session->sess_destroy();
-	redirect(base_url('login'),'refresh');
+	redirect('Login','refresh');
 	}
 
 }

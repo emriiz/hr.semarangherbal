@@ -11,7 +11,7 @@
             </div>
         </div>
         <?php
-        echo form_open_multipart(base_url('operator/pelanggaran/edit/'.$pelanggaran->id_pelanggaran));
+        echo form_open_multipart(base_url('Operator/Pelanggaran/edit/'.$pelanggaran->id_pelanggaran));
          ?>
         <div class="card">
         	<div class="card-body">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md-12" style="text-align: center">
                         <input type="submit" name="submit" class="btn btn-primary btn-primary" style="width: 80px" value="Simpan">&nbsp
-                        <a href="<?php echo base_url()?>operator/pelanggaran" class="btn btn-danger btn-danger" style="width: 80px"> Batal</a>
+                        <a href="<?php echo base_url()?>Operator/Pelanggaran" class="btn btn-danger btn-danger" style="width: 80px"> Batal</a>
                     </div>
                   </div>
                 </div>

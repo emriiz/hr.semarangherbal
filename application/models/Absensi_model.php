@@ -6,7 +6,7 @@ class Absensi_model extends CI_Model {
 	public function listing() {
 		$this->db->select('*');
 		$this->db->from('tbl_absensi');
-		// $this->db->where('wh_shift !=', 'Day Off');
+		$this->db->where('wh_shift !=', 'Day Off');
 		$this->db->order_by('id_absen','ASC');
 		$query = $this->db->get();
 		return $query->result_array();

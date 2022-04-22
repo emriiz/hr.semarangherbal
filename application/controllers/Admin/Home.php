@@ -10,7 +10,7 @@ class Home extends CI_Controller {
 		$this->load->view('admin/template', $data);
 		} else{
 			$this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
-			redirect('login','refresh');
+			redirect('Login','refresh');
 		}
 	}
 

@@ -57,7 +57,7 @@
                                     <th><?php echo $i?></th>
                                     <th><?php echo $ijin->nik?></th>
                                     <th>
-                                      <a href="<?php echo base_url('operator/ijin/add/'.$ijin->id_karyawan)?>" style="color: blue">
+                                      <a href="<?php echo base_url('Operator/Ijin/add/'.$ijin->id_karyawan)?>" style="color: blue">
                                       <?php echo $ijin->nama?>
                                       <sup><i class="fa fa-link"></i></sup>
                                       </a>
@@ -67,7 +67,7 @@
                                     <th><?php echo $ijin->keterangan?></th>
                                     <?php if($this->uri->segment(3) == "") { ?>
                                     <th>
-                                        <a href="<?= base_url('operator/ijin/edit/'.$ijin->id_ijin)?>" class="btn btn-secondary" value="Edit Data"><i class="fa fa-pencil"></i></a>
+                                        <a href="<?= base_url('Operator/Ijin/edit/'.$ijin->id_ijin)?>" class="btn btn-secondary" value="Edit Data"><i class="fa fa-pencil"></i></a>
                                         <?php include('delete.php')?> 
                                     </th>
                                     <?php }?>

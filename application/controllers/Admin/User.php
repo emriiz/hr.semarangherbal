@@ -18,80 +18,93 @@ class User extends CI_Controller {
 			$this->load->view('admin/template', $data);
 		} else{
 			$this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
-			redirect('login','refresh');
+			redirect('Login','refresh');
 		}
-		
 	}
 
 	public function tambah()
 	{
-		$data = array( 'title'   => 'Pengguna');
+		if($this->session->userdata('status') == TRUE){
+			$data = array( 'title'   => 'Pengguna');
 
-		$valid = $this ->form_validation;
+			$valid = $this ->form_validation;
 
-		$valid->set_rules('nama','Nama','required', array('required'  => 'password harus di isi' ));
+			$valid->set_rules('nama','Nama','required', array('required'  => 'password harus di isi' ));
 
-		$valid->set_rules('email','Email','required|is_unique[tbl_user.email]', 
-							array('required'  => 'email harus di isi',
-								  'is_unique'=>  ' Email <strong>'.$this->input->post('email').'</strong> sudah ada, buat email baru' ));
+			$valid->set_rules('email','Email','required|is_unique[tbl_user.email]', 
+								array('required'  => 'email harus di isi',
+									'is_unique'=>  ' Email <strong>'.$this->input->post('email').'</strong> sudah ada, buat email baru' ));
 
-		$valid->set_rules('password','Password','required|min_length[3]', 
-							array('required'  => 'password harus di isi',
-							'min_length' => 'Password minimal 3 huruf' ));
+			$valid->set_rules('password','Password','required|min_length[3]', 
+								array('required'  => 'password harus di isi',
+								'min_length' => 'Password minimal 3 huruf' ));
 
-		if($valid->run()== FALSE){
-			$data  = array('page' => 'admin/pengguna/tambah');
-			$this->load->view('admin/template', $data);
-		}else{
-			$i = $this->input;
-			$data = array('nik'  		=> $i->post('nik'),
-						  'nama'  		=> $i->post('nama'),
-						  'email'  		=> $i->post('email'),
-						  'password'  	=> md5($i->post('password')),
-						  'hak_akses'  	=> $i->post('hak_akses')	  
-					);
-			$this->User_model->tambah($data);
-			$this->session->set_flashdata('success', 'Data telah ditambah');
-			redirect(base_url('admin/user'), 'refresh');
+			if($valid->run()== FALSE){
+				$data  = array('page' => 'admin/pengguna/tambah');
+				$this->load->view('admin/template', $data);
+			}else{
+				$i = $this->input;
+				$data = array('nik'  		=> $i->post('nik'),
+							'nama'  		=> $i->post('nama'),
+							'email'  		=> $i->post('email'),
+							'password'  	=> md5($i->post('password')),
+							'hak_akses'  	=> $i->post('hak_akses')	  
+						);
+				$this->User_model->tambah($data);
+				$this->session->set_flashdata('success', 'Data telah ditambah');
+				redirect(base_url('Admin/User'), 'refresh');
+			}
+		} else{
+			$this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
+			redirect('Login','refresh');
 		}
 	}
 
 	public function edit($id_user)
 	{
-		$user  = $this->User_model->detail($id_user);
+		if($this->session->userdata('status') == TRUE){
+			$user  = $this->User_model->detail($id_user);
 
-		$valid = $this ->form_validation;
+			$valid = $this ->form_validation;
 
-		$valid->set_rules('nama','Nama','required', array('required'  => 'password harus di isi' ));
+			$valid->set_rules('nama','Nama','required', array('required'  => 'password harus di isi' ));
 
-		if($valid->run()== FALSE){
-			$data  = array('title'=> 'Edit Data '.$user->nama,
-						   'user' => $user,
-						   'page' => 'admin/pengguna/edit'
-						   );
-			$this->load->view('admin/template', $data);
-		}else{
-			$i = $this->input;
-			$data = array('id_user'		=> $id_user,
-						  'nik'  		=> $i->post('nik'),
-						  'nama'  		=> $i->post('nama'),
-						  'email'  		=> $i->post('email'),
-						  'password'  	=> md5($i->post('password')),
-						  'hak_akses'  	=> $i->post('hak_akses')	  
-					);
-			$this->User_model->edit($data);
-			$this->session->set_flashdata('success', 'Data telah diupdate');
-			redirect(base_url('admin/user'), 'refresh');
+			if($valid->run()== FALSE){
+				$data  = array('title'=> 'Edit Data '.$user->nama,
+							'user' => $user,
+							'page' => 'admin/pengguna/edit'
+							);
+				$this->load->view('admin/template', $data);
+			}else{
+				$i = $this->input;
+				$data = array('id_user'		=> $id_user,
+							'nik'  		=> $i->post('nik'),
+							'nama'  		=> $i->post('nama'),
+							'email'  		=> $i->post('email'),
+							'password'  	=> md5($i->post('password')),
+							'hak_akses'  	=> $i->post('hak_akses')	  
+						);
+				$this->User_model->edit($data);
+				$this->session->set_flashdata('success', 'Data telah diupdate');
+				redirect(base_url('Admin/User'), 'refresh');
+			}
+		} else{
+			$this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
+			redirect('Login','refresh');
 		}
-
 	}
 
 	public function delete($id_user)
 	{
-		$data = array('id_user'   => $id_user);
-		$this->User_model->delete($data);
-		$this->session->set_flashdata('success', '<b>Data User telah dihapus</b>');
-		redirect(base_url('admin/user'),'refresh');
+		if($this->session->userdata('status') == TRUE){
+			$data = array('id_user'   => $id_user);
+			$this->User_model->delete($data);
+			$this->session->set_flashdata('success', '<b>Data User telah dihapus</b>');
+			redirect(base_url('Admin/User'),'refresh');
+		} else{
+			$this->session->set_flashdata('alert', 'Silahkan Login Terlebih Dahulu');
+			redirect('Login','refresh');
+		}
 	}
 }
 

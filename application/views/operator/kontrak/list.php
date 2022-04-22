@@ -69,7 +69,7 @@
                                                 <th style="color: black; text-align: center"></th>
                                                 <?php if($this->uri->segment(3) == "") { ?>
                                                 <th>
-                                                    <a href="<?php echo base_url('operator/kontrak/edit/'.$user->id_kontrak)?>" class="btn btn-secondary btn-sm"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?php echo base_url('Operator/Kontrak/edit/'.$user->id_kontrak)?>" class="btn btn-secondary btn-sm"><i class="fa fa-edit"></i></a>
                                                     <?php include('delete.php')?>
                                                 </th>
                                                 <?php }?>

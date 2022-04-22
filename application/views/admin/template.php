@@ -75,11 +75,7 @@
                             <i class="mdi mdi-account"> <?= $this->session->userdata('nama');?></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="./app-profile.html" class="dropdown-item">
-                                <i class="icon-key"></i>
-                                <span class="ml-2">Ubah Password </span>
-                            </a>
-                            <a href="<?= base_url('login/logout')?>" class="dropdown-item">
+                            <a href="<?= base_url('Login/logout')?>" class="dropdown-item">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                                 <span class="ml-2">Logout </span>
                             </a>
@@ -100,7 +96,7 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
-                    <li><a href="<?= base_url('admin/home')?>" aria-expanded="false">
+                    <li><a href="<?= base_url('Admin/Home')?>" aria-expanded="false">
                         <i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                     </li>
 
@@ -108,8 +104,8 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="icon icon-single-04"></i><span class="nav-text">User</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('admin/user')?>">Data User</a></li>
-                            <li><a href="<?= base_url('admin/user/tambah')?>">Tambah Data</a></li> 
+                            <li><a href="<?= base_url('Admin/User')?>">Data User</a></li>
+                            <li><a href="<?= base_url('Admin/User/tambah')?>">Tambah Data</a></li> 
                         </ul>
                     </li>
                 </ul>
@@ -182,6 +178,24 @@
       });
     }, 2000);
   </script>
+
+<script>
+        function jam() {
+        var time = new Date(),
+        hours = time.getHours(),
+        minutes = time.getMinutes(),
+        seconds = time.getSeconds();
+        document.querySelectorAll('.jam')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+      
+    function harold(standIn) {
+        if (standIn < 10) {
+          standIn = '0' + standIn
+        }
+        return standIn;
+        }
+    }
+    setInterval(jam, 1000);
+    </script> 
 
 </body>
 

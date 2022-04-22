@@ -18,7 +18,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <?php echo form_open_multipart(base_url('operator/karyawan/tambah'));?>
+                                    <?php echo form_open_multipart(base_url('Operator/Karyawan/tambah'));?>
                                         <div class="row">
                                             <!-- Row Kiri -->
                                             <div class="col-md-6">

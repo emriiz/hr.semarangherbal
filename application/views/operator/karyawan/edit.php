@@ -8,7 +8,7 @@
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?= base_url('operator/karyawan')?>">Operator</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url('Operator/Karyawan')?>">Operator</a></li>
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Edit</a></li>
                             <li class="breadcrumb-item active"><a href="javascript:void(0)"><?= $karyawan->nama?></a></li>
                         </ol>
@@ -20,7 +20,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <?php echo form_open_multipart(base_url('operator/karyawan/edit/'.$karyawan->id_karyawan));?>
+                                    <?php echo form_open_multipart(base_url('Operator/Karyawan/edit/'.$karyawan->id_karyawan));?>
                                         <div class="row">
                                         <!-- Row Kiri -->
                                           <div class="col-md-6">
@@ -309,7 +309,7 @@
                                             <!-- /.form-group Resign -->
                                             <div class="form-group">
                                               <label style="color: black">Alasan Resign</label>
-                                              <input name="resign" type="text" class="form-control" id="" placeholder="Cth : . . . ." value="<?php echo $karyawan->resign?>">
+                                              <input name="resign" type="text" class="form-control" placeholder="Cth : . . . ." value="<?php echo $karyawan->resign?>">
                                             </div>
                                             <!-- /.form-group Resign -->
                                              <div class="form-group">
@@ -328,7 +328,7 @@
                                         <!-- Row Kanan -->
                                             <div class="col-12" style="text-align: center">
                                                 <button type="submit" class="btn btn-rounded btn-primary">Simpan</button>
-                                                <a href="<?= base_url('operator/karyawan')?>" class="btn btn-rounded btn-dark">Kembali</a>
+                                                <a href="<?= base_url('Operator/Karyawan')?>" class="btn btn-rounded btn-dark">Kembali</a>
                                             </div>
                                         </div>
                                     <?php echo form_close(); ?>
