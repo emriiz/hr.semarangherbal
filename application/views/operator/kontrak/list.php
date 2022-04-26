@@ -57,12 +57,20 @@
                                                 <th style="color: black; text-align: center"><?= $user->nama?></th>
                                                 <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->tgl_join))?></th>
                                                 <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt1))?></th>
-                                                <?php if(($user->kt2=="1970-01-01" && $user->kt1_1=="1970-01-01" && $user->kt2_1=="1970-01-01" )) {?>
+                                                <?php if($user->kt2=="1970-01-01" && $user->kt1_1=="1970-01-01" && $user->kt2_1=="1970-01-01" ) {?>
                                                     <th style="color: black; text-align: center">-</th>
                                                     <th style="color: black; text-align: center">-</th>
+                                                    <th style="color: black; text-align: center">-</th>
+                                                <?php }else if($user->kt1_1=="1970-01-01" && $user->kt2_1=="1970-01-01" ){?>
+                                                     <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2))?></th>
+                                                    <th style="color: black; text-align: center">-</th>
+                                                    <th style="color: black; text-align: center">-</th>
+                                                <?php }else if($user->kt2_1=="1970-01-01" ) {?>
+                                                    <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2))?></th>
+                                                    <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt1_1))?></th>
                                                     <th style="color: black; text-align: center">-</th>
                                                 <?php }else{?>
-                                                    <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2))?></th>
+                                                     <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2))?></th>
                                                     <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt1_1))?></th>
                                                     <th style="color: black; text-align: center"><?= date('d-m-Y', strtotime($user->kt2_1))?></th>
                                                 <?php }?>
