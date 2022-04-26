@@ -1,5 +1,16 @@
 <div class="content-body">
             <div class="container-fluid">
+            <?php
+                        if ($this->session->flashdata('alert')) {
+                                echo '<div class="alert alert-danger solid alert-dismissible fade show"> ';
+                                echo $this->session->flashdata('alert');
+                                echo '</div>';
+                            } else if($this->session->flashdata('success')){
+                                echo '<div class="alert alert-success solid alert-dismissible fade show"> ';
+                                echo $this->session->flashdata('success');
+                                echo '</div>';
+                            }
+                        ?>   
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
@@ -116,6 +127,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/Atsiri')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -131,9 +143,11 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                    
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/Ayak')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -149,8 +163,11 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/Bioetanol')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -162,29 +179,21 @@
                                                             $this->db->from('tbl_karyawan');
                                                             $this->db->like('departemen', 'Bioetanol');
                                                             $this->db->like('status_aktif', '1');
-                                                            echo $this->db->count_all_results();?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <div class="stat-widget-one card-body">
-                                <div class="stat-icon d-inline-block">
-                                    <i class="ti-user text-info border-info"></i>
-                                </div>
-                                <div class="stat-content d-inline-block">
-                                    <div class="stat-text">Unit GA</div>
-                                    <div class="stat-digit"><?php $this->db->select('*');
+                                                            $bio= $this->db->count_all_results();
+                                                            $this->db->select('*');
                                                             $this->db->from('tbl_karyawan');
-                                                            $this->db->like('departemen', 'GA');
+                                                            $this->db->like('departemen', 'Pelet');
                                                             $this->db->like('status_aktif', '1');
-                                                            echo $this->db->count_all_results();?></div>
+                                                            $pelet = $this->db->count_all_results();
+                                                            $jmlh_bio = $bio+$pelet;
+                                                            echo $jmlh_bio?></div>
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/Gudang')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -200,25 +209,42 @@
                                 </div>
                             </div>
                         </div>
+                     </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/HRGA')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
                                     <i class="ti-user text-info border-info"></i>
                                 </div>
                                 <div class="stat-content d-inline-block">
-                                    <div class="stat-text">Unit HR</div>
+                                    <div class="stat-text">Unit HRGA-K3</div>
                                     <div class="stat-digit"><?php $this->db->select('*');
                                                             $this->db->from('tbl_karyawan');
                                                             $this->db->where('departemen', 'HR');
                                                             $this->db->like('status_aktif', '1');
-                                                            echo $this->db->count_all_results();?></div>
+                                                            $query= $this->db->count_all_results();
+                                                            $this->db->select('*');
+                                                            $this->db->from('tbl_karyawan');
+                                                            $this->db->like('departemen', 'GA');
+                                                            $this->db->like('status_aktif', '1');
+                                                            $query1 = $this->db->count_all_results();
+                                                            $this->db->select('*');
+                                                            $this->db->from('tbl_karyawan');
+                                                            $this->db->like('departemen', 'K3');
+                                                            $this->db->like('status_aktif', '1');
+                                                            $query2 =  $this->db->count_all_results();
+                                                            $jmlh= $query+$query1+$query2;
+                                                            echo $jmlh?></div>
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/IPA')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -234,8 +260,10 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/IPAL')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -251,42 +279,11 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <div class="stat-widget-one card-body">
-                                <div class="stat-icon d-inline-block">
-                                    <i class="ti-user text-info border-info"></i>
-                                </div>
-                                <div class="stat-content d-inline-block">
-                                    <div class="stat-text">Unit K3</div>
-                                    <div class="stat-digit"><?php $this->db->select('*');
-                                                            $this->db->from('tbl_karyawan');
-                                                            $this->db->like('departemen', 'K3');
-                                                            $this->db->like('status_aktif', '1');
-                                                            echo $this->db->count_all_results();?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <div class="stat-widget-one card-body">
-                                <div class="stat-icon d-inline-block">
-                                    <i class="ti-user text-info border-info"></i>
-                                </div>
-                                <div class="stat-content d-inline-block">
-                                    <div class="stat-text">Unit LAB</div>
-                                    <div class="stat-digit"><?php $this->db->select('*');
-                                                            $this->db->from('tbl_karyawan');
-                                                            $this->db->like('departemen', 'LAB');
-                                                            $this->db->like('status_aktif', '1');
-                                                            echo $this->db->count_all_results();?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/LP')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -302,8 +299,11 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/Marketing')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -319,7 +319,9 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
                         <div class="card">
                             <div class="stat-widget-one card-body">
@@ -337,24 +339,9 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <div class="stat-widget-one card-body">
-                                <div class="stat-icon d-inline-block">
-                                    <i class="ti-user text-info border-info"></i>
-                                </div>
-                                <div class="stat-content d-inline-block">
-                                    <div class="stat-text">Unit Pelet</div>
-                                    <div class="stat-digit"><?php $this->db->select('*');
-                                                            $this->db->from('tbl_karyawan');
-                                                            $this->db->like('departemen', 'Pelet');
-                                                            $this->db->like('status_aktif', '1');
-                                                            echo $this->db->count_all_results();?></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/Produksi')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -370,8 +357,10 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/QA')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -387,8 +376,11 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/QC')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -400,12 +392,21 @@
                                                             $this->db->from('tbl_karyawan');
                                                             $this->db->like('departemen', 'QC');
                                                             $this->db->like('status_aktif', '1');
-                                                            echo $this->db->count_all_results();?></div>
+                                                            $qc = $this->db->count_all_results();
+                                                            $this->db->select('*');
+                                                            $this->db->from('tbl_karyawan');
+                                                            $this->db->like('departemen', 'LAB');
+                                                            $this->db->like('status_aktif', '1');
+                                                            $lab = $this->db->count_all_results();
+                                                            $jmlh_qc = $qc+$lab;
+                                                            echo $jmlh_qc?></div>
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/RND')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -421,8 +422,10 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                         <a href="<?= base_url('Operator/Unit/Finance')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -438,8 +441,11 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
+
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/Teknik')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -455,6 +461,7 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <div class="card">

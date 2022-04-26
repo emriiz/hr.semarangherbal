@@ -74,7 +74,6 @@
                              <input type="text" class="form-control" name="keterangan" value="<?php echo $lembur->keterangan?>">
                          </div>
                       </div>
-
                       <div class="col-md-12" style="text-align: center">
                          <input type="submit" name="submit" class="btn btn-primary btn-primary" style="width: 80px" value="Simpan">&nbsp
                          <a href="<?php echo base_url()?>Operator/Lembur" class="btn btn-danger btn-danger" style="width: 80px"> Batal</a>

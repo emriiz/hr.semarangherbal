@@ -96,6 +96,172 @@ class Karyawan_model extends CI_Model {
 	      return 0;
 	    }
 	}
+
+	public function unit_atsiri()
+	{
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->like('departemen', 'Atsiri');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_ayak()
+	{
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->like('departemen', 'Ayak');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_bio()
+	{
+		$unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', $unit);
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_gudang()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'Gudang');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_hrga()
+	{
+		$unit = array('HR','GA', 'K3');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', $unit);
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_ipal()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'IPAL');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_lp()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'LP');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_marketing()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'Marketing');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_produksi()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'Produksi');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_qa()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'QA');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_qc()
+	{
+		$unit = array('QC','LAB');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', $unit);
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_rnd()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'R&D');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_finance()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'Finance');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_teknik()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'Teknik');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 
 /* End of file Karyawan_model.php */
