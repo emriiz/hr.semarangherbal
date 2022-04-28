@@ -54,7 +54,8 @@
                                                             $this->db->from('tbl_karyawan');
                                                             $this->db->like('jekel', 'Laki-laki');
                                                             $this->db->like('status_aktif', '1');
-                                                            echo $this->db->count_all_results();?></div>
+                                                            $pria = $this->db->count_all_results();
+                                                            echo $pria?></div>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +72,8 @@
                                                             $this->db->from('tbl_karyawan');
                                                             $this->db->like('jekel', 'Perempuan');
                                                             $this->db->like('status_aktif', '1');
-                                                            echo $this->db->count_all_results();?></div>
+                                                            $wanita = $this->db->count_all_results();
+                                                            echo $wanita?></div>
                                 </div>
                             </div>
                         </div>
@@ -478,6 +480,34 @@
                     </div>
                 </div>
                 <!-- End Unit -->
+                <!-- Chart Pie -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End chart Pie -->
+                <!-- Chart Bar -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Calender -->
                 <div class="row">
                     <div class="col-lg-12">

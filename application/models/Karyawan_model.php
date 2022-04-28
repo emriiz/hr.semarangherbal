@@ -167,7 +167,7 @@ class Karyawan_model extends CI_Model {
 		return $query->result();
 	}
 
-	public function unit_lp()
+	public function unit_ipa()
 	{
 		// $unit = array('Bioetanol','Pelet');
 		$this->db->select('*');

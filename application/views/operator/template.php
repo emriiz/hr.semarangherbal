@@ -28,7 +28,6 @@
         padding: 5px;
      }
     </style>
-
 </head>
 
 <body>
@@ -303,6 +302,7 @@
     <!-- Pickdate -->
     <script src="<?= base_url()?>assets/js/plugins-init/pickadate-init.js"></script>
 
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script>
      window.setTimeout(function() {
       $(".alert").fadeTo(500, 0).slideUp(500, function(){
@@ -358,16 +358,225 @@
         seconds = time.getSeconds();
         document.querySelectorAll('.jam')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
       
-    function harold(standIn) {
-        if (standIn < 10) {
-          standIn = '0' + standIn
+        function harold(standIn) {
+            if (standIn < 10) {
+              standIn = '0' + standIn
+            }
+            return standIn;
+            }
         }
-        return standIn;
-        }
-    }
-    setInterval(jam, 1000);
-    </script>  
+        setInterval(jam, 1000);
+    </script>
 
+    <script type="text/javascript">
+      window.onload = function () {
+        var chart1 = new CanvasJS.Chart("chartContainer1", {
+            theme: "light1", // "light1", "light2", "dark1", "dark2"
+            exportEnabled: true,
+            animationEnabled: true,
+          title:{
+            text: "Presentase Karyawan Berdasarkan jenis kelamin"              
+          },
+          data: [//array of dataSeries              
+            { //dataSeries object
+             /*** Change type "column" to "bar", "area", "line" or "pie"***/
+             type: "pie",
+             indexLabel: "{label} - {y}%",
+             dataPoints: [
+             { label: "Perempuan", y: <?php $this->db->select('*');
+                                        $this->db->from('tbl_karyawan');
+                                        $this->db->like('status_aktif', '1');
+                                        $tot = $this->db->count_all_results();?>
+                                        <?php $this->db->select('*');
+                                        $this->db->from('tbl_karyawan');
+                                        $this->db->like('jekel', 'Perempuan');
+                                        $this->db->like('status_aktif', '1');
+                                        $wanita = $this->db->count_all_results();
+                                        $total = ($wanita/$tot)*100;
+                                        echo number_format($total)?> },
+             { label: "Laki-laki", y: <?php $this->db->select('*');
+                                        $this->db->from('tbl_karyawan');
+                                        $this->db->like('status_aktif', '1');
+                                        $tot1 = $this->db->count_all_results();?> 
+                                        <?php $this->db->select('*');
+                                        $this->db->from('tbl_karyawan');
+                                        $this->db->like('jekel', 'Laki-laki');
+                                        $this->db->like('status_aktif', '1');
+                                        $pria = $this->db->count_all_results();
+                                        $total1 = ($pria/$tot)*100;
+                                        echo number_format($total1)?> }
+             ]
+           }
+           ]
+         });
+         var chart2 = new CanvasJS.Chart("chartContainer2", {
+            theme: "light1", // "light1", "light2", "dark1", "dark2"
+            exportEnabled: true,
+            animationEnabled: true,
+          title:{
+            text: "Presentase Karyawan Berdasarkan Status Karyawan"              
+          },
+          data: [//array of dataSeries              
+            { //dataSeries object
+             /*** Change type "column" to "bar", "area", "line" or "pie"***/
+             type: "pie",
+             indexLabel: "{label} - {y}%",
+             dataPoints: [
+             { label: "Tetap", y: <?php $this->db->select('*');
+                                    $this->db->from('tbl_karyawan');
+                                    $this->db->like('status_aktif', '1');
+                                    $tot = $this->db->count_all_results();?> 
+                                    <?php $this->db->select('*');
+                                    $this->db->from('tbl_karyawan');
+                                    $this->db->like('status_karyawan', 'Tetap');
+                                    $this->db->like('status_aktif', '1');
+                                    $ttp = $this->db->count_all_results();
+                                    $total2 = ($ttp/$tot)*100;
+                                    echo number_format($total2)?> },
+             { label: "Kontrak", y: <?php $this->db->select('*');
+                                    $this->db->from('tbl_karyawan');
+                                    $this->db->like('status_aktif', '1');
+                                    $tot3 = $this->db->count_all_results();?>
+                                    <?php $this->db->select('*');
+                                    $this->db->from('tbl_karyawan');
+                                    $this->db->like('status_karyawan', 'Kontrak');
+                                    $this->db->like('status_aktif', '1');
+                                    $ktk = $this->db->count_all_results();
+                                     $total3 = ($ktk/$tot)*100;
+                                    echo number_format($total3)?> }
+             ]
+           }
+           ]
+         });
+         var chart3 = new CanvasJS.Chart("chartContainer3", {
+            exportEnabled: true,
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            title:{
+                text: "Data Karyawan Berdasarkan Unit"
+            },
+            axisY: {
+                title: "Jumlah Karyawan"
+            },
+            data: [{
+            /*** Change type "column" to "bar", "area", "line" or "pie"***/        
+                type: "column",
+                // indexLabel: "{label}",
+                dataPoints: [      
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Atsiri');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>, indexLabel: "Atsiri", label:" " },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Ayak');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>, indexLabel: "Ayak", label: " " },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Bioetanol');
+                        $this->db->like('status_aktif', '1');
+                        $bio= $this->db->count_all_results();
+                        $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Pelet');
+                        $this->db->like('status_aktif', '1');
+                        $pelet = $this->db->count_all_results();
+                        $jmlh_bio = $bio+$pelet;
+                        echo $jmlh_bio?>, indexLabel: "Bioetanol", label: " " },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Gudang');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>, indexLabel: "Gudang", label:" " },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->where('departemen', 'HR');
+                        $this->db->like('status_aktif', '1');
+                        $query= $this->db->count_all_results();
+                        $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'GA');
+                        $this->db->like('status_aktif', '1');
+                        $query1 = $this->db->count_all_results();
+                        $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'K3');
+                        $this->db->like('status_aktif', '1');
+                        $query2 =  $this->db->count_all_results();
+                        $jmlh= $query+$query1+$query2;
+                        echo $jmlh?>, indexLabel: "HRGA-K3", label :" " },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->where('departemen', 'IPA');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>, indexLabel: "IPA", label:" " },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->where('departemen', 'IPAL');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>,  indexLabel: "IPAL", label:" " },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'LP');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>,  indexLabel: "LP", label: " " },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Marketing');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>,  indexLabel: "Marketing", label:" " },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Pabrik');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?> , label:" ", indexLabel: "Pabrik" },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Produksi');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "Produksi" },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'QA');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "QA" },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'QC');
+                        $this->db->like('status_aktif', '1');
+                        $qc = $this->db->count_all_results();
+                        $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'LAB');
+                        $this->db->like('status_aktif', '1');
+                        $lab = $this->db->count_all_results();
+                        $jmlh_qc = $qc+$lab;
+                        echo $jmlh_qc?>, label:" ", indexLabel: "QC" },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'R&D');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "R&D" },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Finance');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "Finance" },
+                    { y: <?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('departemen', 'Teknik');
+                        $this->db->like('status_aktif', '1');
+                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "Teknik" }
+                ]
+            }]
+        });
+        chart1.render();
+        chart2.render();
+        chart3.render();
+      }
+  </script>
 </body>
 
 </html>

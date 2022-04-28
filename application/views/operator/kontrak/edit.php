@@ -1,21 +1,21 @@
 <div class="content-body" style="margin-bottom: -420px">
   <div class="container-fluid">
-    	<div class="row page-titles mx-0">
+      <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
-    				<p style="color: black"><?= $title?></p>
+            <p style="color: black"><?= $title?></p>
                 </div>
             </div>
             <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                      
             </div>
         </div>
-         <?php
+        <?php
         echo form_open_multipart(base_url('Operator/Kontrak/edit/'.$kontrak->id_kontrak));
          ?>
         <div class="card">
-        	<div class="card-body">
-        		<div class="row">
+          <div class="card-body">
+            <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
                         <label class="col-md-3 col-form-label" style="color: black">Kontrak 1</label>
@@ -52,8 +52,9 @@
                 </div>
                  
             </div>
-        	</div>
+          </div>
         </div>
         <?php echo form_close();?>
   </div>
 </div>
+<br><br>
