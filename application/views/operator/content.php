@@ -43,13 +43,14 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/pria')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
                                     <i class="fa fa-child text-primary border-primary"></i>
                                 </div>
                                 <div class="stat-content d-inline-block">
-                                    <div class="stat-text">Karyawan Pria</div>
+                                    <div class="stat-text">Karyawan Laki-laki</div>
                                     <div class="stat-digit"><?php $this->db->select('*');
                                                             $this->db->from('tbl_karyawan');
                                                             $this->db->like('jekel', 'Laki-laki');
@@ -59,8 +60,10 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/wanita')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -77,8 +80,10 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/tetap')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -94,8 +99,10 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
+                        <a href="<?= base_url('Operator/Unit/kontrak')?>">
                         <div class="card">
                             <div class="stat-widget-one card-body">
                                 <div class="stat-icon d-inline-block">
@@ -111,6 +118,7 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <div class="card">
@@ -464,6 +472,19 @@
                             </div>
                         </div>
                         </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-one card-body">
+                                <div class="stat-icon d-inline-block">
+                                    <i class="ti-user text-info border-info"></i>
+                                </div>
+                                <div class="stat-content d-inline-block">
+                                    <div class="stat-text">-</div>
+                                    <div class="stat-digit">-</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <div class="card">

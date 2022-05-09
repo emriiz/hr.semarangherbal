@@ -119,8 +119,9 @@
                                                 <select name="departemen" class="form-control select2" style="width: 100%;">
                                                   <option>--Pilih Departemen--</option>
                                                   <option value="Atsiri" <?php if($karyawan->departemen=="Atsiri"){echo 'selected';}?>>Atsiri</option>
-                                                  <option value="Ayak" <?php if($karyawan->departemen=="Ayak"){echo 'selected';}?>>Ayak/option>
+                                                  <option value="Ayak" <?php if($karyawan->departemen=="Ayak"){echo 'selected';}?>>Ayak</option>
                                                   <option value="Bioetanol" <?php if($karyawan->departemen=="Bioetanol"){echo 'selected';}?>>Bioetanol</option>
+                                                  <option value="Finance" <?php if($karyawan->departemen=="Finance"){echo 'selected';}?>>Finance</option>
                                                   <option value="GA" <?php if($karyawan->departemen=="GA"){echo 'selected';}?>>GA</option>
                                                   <option value="Gudang" <?php if($karyawan->departemen=="Gudang"){echo 'selected';}?>>Gudang</option>
                                                   <option value="HR" <?php if($karyawan->departemen=="HR"){echo 'selected';}?>>HR</option>
@@ -132,7 +133,7 @@
                                                   <option value="LP" <?php if($karyawan->departemen=="LP"){echo 'selected';}?>>LP</option>
                                                   <option value="Marketing" <?php if($karyawan->departemen=="Marketing"){echo 'selected';}?>>Marketing</option>
                                                   <option value="Pabrik" <?php if($karyawan->departemen=="Pabrik"){echo 'selected';}?>>Pabrik</option>
-                                                  <option value="Pelet" <?php if($karyawan->departemen=="Pelet"){echo 'selected';}?>>PELET</option>
+                                                  <option value="Pelet" <?php if($karyawan->departemen=="Pelet"){echo 'selected';}?>>Pelet</option>
                                                   <option value="Produksi" <?php if($karyawan->departemen=="Produksi"){echo 'selected';}?>>Produksi</option>
                                                   <option value="QA" <?php if($karyawan->departemen=="QA"){echo 'selected';}?>>QA</option>
                                                   <option value="QC" <?php if($karyawan->departemen=="QC"){echo 'selected';}?>>QC</option>
@@ -149,8 +150,8 @@
                                                     <option>--Pilih Jabatan--</option>
                                                     <option value="Admin" <?php if($karyawan->jabatan=="Admin"){echo 'selected';}?>>Admin</option>
                                                     <option value="Analis"<?php if($karyawan->jabatan=="Analis"){echo 'selected';}?>>Analis</option>
-                                                    <option value="Assisten Analis"<?php if($karyawan->jabatan=="Assiten Analis"){echo 'selected';}?>>Assisten Analis</option>
-                                                    <option value="Assisten IPC"<?php if($karyawan->jabatan=="Assiten IPC"){echo 'selected';}?>>Assisten IPC</option>
+                                                    <option value="Assisten Analis"<?php if($karyawan->jabatan=="Assisten Analis"){echo 'selected';}?>>Assisten Analis</option>
+                                                    <option value="Assisten IPC"<?php if($karyawan->jabatan=="Assisten IPC"){echo 'selected';}?>>Assisten IPC</option>
                                                     <option value="Assisten Supervisor"<?php if($karyawan->jabatan=="Assisten Supervisor"){echo 'selected';}?>>Assisten Supervisor</option>
                                                     <option value="Cleaning Service"<?php if($karyawan->jabatan=="Cleaning Service"){echo 'selected';}?>>Cleaning Service</option>
                                                     <option value="Driver"<?php if($karyawan->jabatan=="Driver"){echo 'selected';}?>>Driver</option>
@@ -191,7 +192,7 @@
                                                 <select name="lok_kerja" class="form-control select2" style="width: 100%;">
                                                   <option>--Pilih Lokasi Kerja--</option>
                                                   <option value="Atsiri" <?php if($karyawan->lok_kerja=="Atsiri"){echo 'selected';}?>>Atsiri</option>
-                                                  <option value="Ayak" <?php if($karyawan->lok_kerja=="Ayak"){echo 'selected';}?>>Ayak/option>
+                                                  <option value="Ayak" <?php if($karyawan->lok_kerja=="Ayak"){echo 'selected';}?>>Ayak</option>
                                                   <option value="Bioetanol" <?php if($karyawan->lok_kerja=="Bioetanol"){echo 'selected';}?>>Bioetanol</option>
                                                   <option value="Bioseptik" <?php if($karyawan->lok_kerja=="Bioseptik"){echo 'selected';}?>>Bioseptik</option>
                                                   <option value="Boiler" <?php if($karyawan->lok_kerja=="Boiler"){echo 'selected';}?>>Boiler</option>
@@ -208,14 +209,15 @@
                                                   <option value="Laboratorium" <?php if($karyawan->lok_kerja=="Laboratorium"){echo 'selected';}?>>Laboratorium</option>
                                                   <option value="LP" <?php if($karyawan->lok_kerja=="LP"){echo 'selected';}?>>LP</option>
                                                   <option value="Marketing" <?php if($karyawan->lok_kerja=="Marketing"){echo 'selected';}?>>Marketing</option>
+                                                    <option value="Menara" <?php if($karyawan->lok_kerja=="Menara"){echo 'selected';}?>>Menara</option>
                                                   <option value="Pabrik" <?php if($karyawan->lok_kerja=="Pabrik"){echo 'selected';}?>>Pabrik</option>
                                                   <option value="Pelet" <?php if($karyawan->lok_kerja=="Pelet"){echo 'selected';}?>>Pelet</option>
+                                                    <option value="Pilot Plant" <?php if($karyawan->lok_kerja=="Pilot Plant"){echo 'selected';}?>>Pilot Plant</option>
                                                   <option value="Produksi" <?php if($karyawan->lok_kerja=="Produksi"){echo 'selected';}?>>Produksi</option>
                                                   <option value="Proper" <?php if($karyawan->lok_kerja=="Proper"){echo 'selected';}?>>Proper</option>
                                                   <option value="QA" <?php if($karyawan->lok_kerja=="QA"){echo 'selected';}?>>QA</option>
                                                   <option value="QC" <?php if($karyawan->lok_kerja=="QC"){echo 'selected';}?>>QC</option>
                                                   <option value="R&D" <?php if($karyawan->lok_kerja=="R&D"){echo 'selected';}?>>R&D</option>
-                                                  <option value="Teknik" <?php if($karyawan->lok_kerja=="Teknik"){echo 'selected';}?>>Teknik</option>
                                                   <option value="Telepon" <?php if($karyawan->lok_kerja=="Telepon"){echo 'selected';}?>>Telepon</option>
                                                   <option value="Timbang" <?php if($karyawan->lok_kerja=="Timbang"){echo 'selected';}?>>Timbang</option>
                                                   <option value="Teknik" <?php if($karyawan->lok_kerja=="Teknik"){echo 'selected';}?>>Teknik</option>

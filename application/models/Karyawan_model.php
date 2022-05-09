@@ -22,7 +22,7 @@ class Karyawan_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('tbl_karyawan');
 		$this->db->where('status_aktif = 2');
-		$this->db->order_by('id_karyawan','ASC');
+		$this->db->order_by('tgl_resign','DESC');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -97,6 +97,36 @@ class Karyawan_model extends CI_Model {
 	    }
 	}
 
+	public function pria() {
+		$this->db->select('*');
+		$this->db->from('tbl_karyawan');
+		$this->db->like('jekel', 'Laki-laki');
+		$this->db->where('status_aktif = 1');
+		$this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function wanita() {
+		$this->db->select('*');
+		$this->db->from('tbl_karyawan');
+		$this->db->like('jekel', 'perempuan');
+		$this->db->where('status_aktif = 1');
+		$this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function tetap() {
+		$this->db->select('*');
+		$this->db->from('tbl_karyawan');
+		$this->db->like('status_karyawan', 'Tetap');
+		$this->db->where('status_aktif = 1');
+		$this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function unit_atsiri()
 	{
 		$this->db->select('*');
@@ -168,6 +198,18 @@ class Karyawan_model extends CI_Model {
 	}
 
 	public function unit_ipa()
+	{
+		// $unit = array('Bioetanol','Pelet');
+		$this->db->select('*');
+        $this->db->from('tbl_karyawan');
+        $this->db->where_in('departemen', 'IPA');
+        $this->db->like('status_aktif', '1');
+        $this->db->order_by('id_karyawan','DESC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function unit_lp()
 	{
 		// $unit = array('Bioetanol','Pelet');
 		$this->db->select('*');

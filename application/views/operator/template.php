@@ -442,7 +442,7 @@
                                     $this->db->like('status_karyawan', 'Kontrak');
                                     $this->db->like('status_aktif', '1');
                                     $ktk = $this->db->count_all_results();
-                                     $total3 = ($ktk/$tot)*100;
+                                    $total3 = ($ktk/$tot)*100;
                                     echo number_format($total3)?> }
              ]
            }
@@ -453,27 +453,44 @@
             animationEnabled: true,
             theme: "light2", // "light1", "light2", "dark1", "dark2"
             title:{
-                text: "Data Karyawan Berdasarkan Unit"
+                text: "Presentase Karyawan Berdasarkan Unit"
             },
             axisY: {
                 title: "Jumlah Karyawan"
             },
             data: [{
             /*** Change type "column" to "bar", "area", "line" or "pie"***/        
-                type: "column",
-                // indexLabel: "{label}",
+                type: "pie",
                 dataPoints: [      
-                    { y: <?php $this->db->select('*');
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?>
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'Atsiri');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>, indexLabel: "Atsiri", label:" " },
-                    { y: <?php $this->db->select('*');
+                        $atsiri = $this->db->count_all_results();
+                        $total3 = ($atsiri/$tot3)*100;
+                        echo number_format($total3, '1')?>, 
+                        indexLabel: "Atsiri - {y}%", label:"Atsiri " },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'Ayak');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>, indexLabel: "Ayak", label: " " },
-                    { y: <?php $this->db->select('*');
+                        $ayak = $this->db->count_all_results();
+                        $total3 = ($ayak/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        indexLabel: "Ayak - {y}%", label: " " },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?>  
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'Bioetanol');
                         $this->db->like('status_aktif', '1');
@@ -484,13 +501,26 @@
                         $this->db->like('status_aktif', '1');
                         $pelet = $this->db->count_all_results();
                         $jmlh_bio = $bio+$pelet;
-                        echo $jmlh_bio?>, indexLabel: "Bioetanol", label: " " },
-                    { y: <?php $this->db->select('*');
+                        $total3 = ($jmlh_bio/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        indexLabel: "Bioetanol - {y}%", label: " " },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?>
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'Gudang');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>, indexLabel: "Gudang", label:" " },
-                    { y: <?php $this->db->select('*');
+                        $gudang = $this->db->count_all_results();
+                        $total3 = ($gudang/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        indexLabel: "Gudang - {y}%", label:" " },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->where('departemen', 'HR');
                         $this->db->like('status_aktif', '1');
@@ -506,43 +536,98 @@
                         $this->db->like('status_aktif', '1');
                         $query2 =  $this->db->count_all_results();
                         $jmlh= $query+$query1+$query2;
-                        echo $jmlh?>, indexLabel: "HRGA-K3", label :" " },
-                    { y: <?php $this->db->select('*');
+                        $total3 = ($jmlh/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        indexLabel: "HRGA-K3 - {y}%", label :" " },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?>  
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->where('departemen', 'IPA');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>, indexLabel: "IPA", label:" " },
-                    { y: <?php $this->db->select('*');
+                        $ipa = $this->db->count_all_results();
+                        $total3 = ($ipa/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        indexLabel: "IPA - {y}%", label:" " },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->where('departemen', 'IPAL');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>,  indexLabel: "IPAL", label:" " },
-                    { y: <?php $this->db->select('*');
+                        $ipal = $this->db->count_all_results();
+                        $total3 = ($ipal/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        indexLabel: "IPAL - {y}%", label:" " },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'LP');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>,  indexLabel: "LP", label: " " },
-                    { y: <?php $this->db->select('*');
+                        $lp = $this->db->count_all_results();
+                        $total3 = ($lp/$tot3)*100;
+                        echo number_format($total3,"1")?>,  
+                        indexLabel: "LP - {y}%", label: " " },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'Marketing');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>,  indexLabel: "Marketing", label:" " },
-                    { y: <?php $this->db->select('*');
+                        $marketing = $this->db->count_all_results();
+                        $total3 = ($marketing/$tot3)*100;
+                        echo number_format($total3,"1")?>,  
+                        indexLabel: "Marketing - {y}%", label:" " },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'Pabrik');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?> , label:" ", indexLabel: "Pabrik" },
-                    { y: <?php $this->db->select('*');
+                        $pabrik = $this->db->count_all_results();
+                        $total3 = ($pabrik/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        label:" ", indexLabel: "Pabrik - {y}%" },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?>  
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'Produksi');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "Produksi" },
-                    { y: <?php $this->db->select('*');
+                        $produksi = $this->db->count_all_results();
+                        $total3 = ($produksi/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        label:" ", indexLabel: "Produksi - {y}%" },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'QA');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "QA" },
-                    { y: <?php $this->db->select('*');
+                        $qa = $this->db->count_all_results();
+                        $total3 = ($qa/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        label:" ", indexLabel: "QA - {y}%" },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'QC');
                         $this->db->like('status_aktif', '1');
@@ -553,22 +638,45 @@
                         $this->db->like('status_aktif', '1');
                         $lab = $this->db->count_all_results();
                         $jmlh_qc = $qc+$lab;
-                        echo $jmlh_qc?>, label:" ", indexLabel: "QC" },
-                    { y: <?php $this->db->select('*');
+                        $total3 = ($jmlh_qc/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        label:" ", indexLabel: "QC - {y}%" },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'R&D');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "R&D" },
-                    { y: <?php $this->db->select('*');
+                        $rnd = $this->db->count_all_results();
+                        $total3 = ($rnd/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        label:" ", indexLabel: "R&D - {y}%" },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'Finance');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "Finance" },
-                    { y: <?php $this->db->select('*');
+                        $fin = $this->db->count_all_results();
+                        $total3 = ($fin/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        label:" ", indexLabel: "Finance - {y}%" },
+                    { y:<?php $this->db->select('*');
+                        $this->db->from('tbl_karyawan');
+                        $this->db->like('status_aktif', '1');
+                        $tot3 = $this->db->count_all_results();?> 
+                        <?php $this->db->select('*');
                         $this->db->from('tbl_karyawan');
                         $this->db->like('departemen', 'Teknik');
                         $this->db->like('status_aktif', '1');
-                        echo $this->db->count_all_results();?>, label:" ", indexLabel: "Teknik" }
+                        $teknik = $this->db->count_all_results();
+                        $total3 = ($teknik/$tot3)*100;
+                        echo number_format($total3,"1")?>, 
+                        label:" ", indexLabel: "Teknik - {y}%" }
                 ]
             }]
         });

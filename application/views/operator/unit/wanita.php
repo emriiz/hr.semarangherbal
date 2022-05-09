@@ -3,13 +3,15 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            
+                            <h4><?= $title?></h4>
+                            <!-- <p class="mb-0">Your business dashboard template</p> -->
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Operator</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)"><?= $title?></a></li>
+                             <li class="breadcrumb-item"><a href="javascript:void(0)">Unit</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)"><?= $judul?></a></li>
                         </ol>
                     </div>
                 </div>
@@ -17,51 +19,29 @@
                 <div class="row">
                      <div class="col-12">
                         <div class="card">
-                        <?php
-                        if ($this->session->flashdata('alert')) {
-                                echo '<div class="alert alert-danger alert-dismissible fade show"> ';
-                                echo $this->session->flashdata('alert');
-                                echo '</div>';
-                            } else if($this->session->flashdata('success')){
-                                echo '<div class="alert alert-success alert-dismissible fade show"> ';
-                                echo $this->session->flashdata('success');
-                                echo '</div>';
-                            }
-                        ?>   
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="example" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr style="text-align: center">
                                                 <th>#</th>
-                                                <th>Foto</th>
+                                                <th width="30%">Foto</th>
                                                 <th>NIK</th>
                                                 <th>Nama</th>
-                                                <th>Tgl Kontrak Habis</th>
-                                                <th width="20%">Aksi</th>
                                             </tr>
                                         </thead>
                                        
                                         <tbody>
-                                             <?php $i=1; foreach($karyawan as $user){?>
+                                             <?php $i=1; foreach($wanita as $user){?>
                                             <tr style="text-align: center">
                                                 <td style="color: black"><?= $i ?></td>
-                                                <?php if(($user->foto)== NULL){?>
+                                                 <?php if(($user->foto)== NULL){?>
                                                     <td><img src="<?php echo base_url();?>assets/images/default.jpg" width="20%"></td>
                                                   <?php }else{?>
                                                     <td><img src="<?php echo base_url();?>assets/foto/<?php echo $user->foto;?>" width="60"></td>
                                                   <?php }?>
                                                 <td style="color: black"><?= $user->nik ?></td>
                                                 <td style="color: black"><?= $user->nama ?></td>
-                                                <td style="color: black"><?php
-                                                    $tgl1 = date('d F Y', strtotime($user->tgl_join));// pendefinisian tanggal awal
-                                                    $tgl2 = date('d F Y', strtotime('+3 months', strtotime($tgl1))); //operasi penjumlahan tanggal sebanyak 6 hari
-                                                    echo $tgl2; //print tanggal
-                                                    ?> 
-                                                </td>
-                                                <td>
-                                                    <a href="<?= base_url('Operator/Kontrak/add/'.$user->id_karyawan)?>" class="btn btn-secondary">Pilih</a>
-                                                </td>
                                             </tr>
                                             <?php $i++;} ?>
                                         </tbody>

@@ -19,8 +19,8 @@ class Karyawan extends CI_Controller {
             $totalKaryawan = $this->Karyawan_model->totalKaryawan();
 			$data = array('title'         => 'Data Karyawan',
         					  'karyawan'  => $karyawan,
-        					  'page'      => 'Operator/karyawan/list');
-		$this->load->view('Operator/template', $data);
+        					  'page'      => 'operator/karyawan/list');
+		$this->load->view('operator/template', $data);
 		} else{
 			$this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
 			redirect('Login','refresh');
@@ -35,8 +35,8 @@ class Karyawan extends CI_Controller {
         $karyawan = $this->Karyawan_model->getDataKaryawanNon($tglawal, $tglakhir);
       $data = array('title'     => 'Data Karyawan Non Aktif',
                     'karyawan'  => $karyawan,
-                    'page'      => 'Operator/karyawan/list_non');
-    $this->load->view('Operator/template', $data);
+                    'page'      => 'operator/karyawan/list_non');
+    $this->load->view('operator/template', $data);
     } else{
       $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
       redirect('Login','refresh');
@@ -65,8 +65,8 @@ class Karyawan extends CI_Controller {
                     $this->upload->initialize($config);
 
                     if(! $this->upload->do_upload('foto')){
-                        $data['page'] = 'Operator/karyawan/tambah';
-                        $this->load->view('Operator/template', $data);
+                        $data['page'] = 'operator/karyawan/tambah';
+                        $this->load->view('operator/template', $data);
                         }else{
                             //UPLOAD DATA
                             $upload_data    =  array('uploads' => $this->upload->data());
@@ -165,7 +165,7 @@ class Karyawan extends CI_Controller {
                 }   
             }
             $data['page'] = 'operator/karyawan/tambah';
-            $this->load->view('Operator/template', $data);
+            $this->load->view('operator/template', $data);
         } else{
             $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
             redirect('Login','refresh');
@@ -195,7 +195,7 @@ class Karyawan extends CI_Controller {
                         $data    = array('title'    => $karyawan->nama,
                                         'karyawan'  => $karyawan);
                         $data['page'] = 'operator/karyawan/edit';
-                        $this->load->view('Operator/template', $data);
+                        $this->load->view('operator/template', $data);
                         }else{
                             //UPLOAD DATA
                             $upload_data    =  array('uploads' => $this->upload->data());
@@ -297,8 +297,8 @@ class Karyawan extends CI_Controller {
             }
             $data    = array('title'    => $karyawan->nama,
                             'karyawan'  => $karyawan);
-            $data['page'] = 'Operator/karyawan/edit';
-            $this->load->view('Operator/template', $data);
+            $data['page'] = 'operator/karyawan/edit';
+            $this->load->view('operator/template', $data);
         } else{
             $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
             redirect('Login','refresh');
@@ -393,7 +393,7 @@ class Karyawan extends CI_Controller {
                       'karyawan'  => $karyawan,
                       'tglawal'   => $tglawal,
                       'tglakhir'  => $tglakhir);
-        $this->load->view('Operator/karyawan/cetak', $data);
+        $this->load->view('operator/karyawan/cetak', $data);
     }
 
     public function export()
@@ -406,7 +406,7 @@ class Karyawan extends CI_Controller {
                           'karyawan'  => $karyawan,
                           'tglawal'   => $tglawal,
                           'tglakhir'  => $tglakhir);
-            $this->load->view('Operator/karyawan/print', $data);
+            $this->load->view('operator/karyawan/print', $data);
         } else{
             $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
             redirect('Login','refresh');
@@ -422,7 +422,7 @@ class Karyawan extends CI_Controller {
         $data = array('title'     => 'Data Karyawan',
                       'karyawan'  => $karyawan,
                       'page'      => 'operator/karyawan/laporan');
-        $this->load->view('Operator/template', $data);
+        $this->load->view('operator/template', $data);
       } else{
         $this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
         redirect('Login','refresh');

@@ -17,7 +17,7 @@ class Pelanggaran_model extends CI_Model {
 						 tbl_karyawan.jabatan');
 		$this->db->from('tbl_pelanggaran');
 		$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_pelanggaran.id_karyawan');
-		$this->db->order_by('id_karyawan','ASC');
+		$this->db->order_by('id_karyawan','DESC');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -30,7 +30,7 @@ class Pelanggaran_model extends CI_Model {
 		$this->db->from('tbl_pelanggaran');
 		$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_pelanggaran.id_karyawan');
 		$this->db->where('tbl_pelanggaran.id_karyawan', $id_karyawan);
-		$this->db->order_by('id_karyawan','ASC');
+		$this->db->order_by('tgl_pelanggaran','DESC');
 		$query = $this->db->get();
 		return $query->result();
 	}

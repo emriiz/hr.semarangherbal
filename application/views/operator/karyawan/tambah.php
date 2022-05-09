@@ -56,6 +56,7 @@
                                               <!-- Form Group Usia -->
                                               <div class="form-group">
                                                 <label style="color: black">Usia<small style="color: red">*</small></label>
+                                                
                                                 <input type="text" class="form-control" name="umur" value="<?php echo set_value('umur')?>" placeholder="Masukkan Usia" required>
                                               </div>
                                               <!--Form Group Jenis Kelamin-->
@@ -193,7 +194,7 @@
                                                   <select id="single-select" name="lok_kerja" class="form-control select2" style="width: 100%;" required>
                                                     <option>--Pilih Lokasi Kerja--</option>
                                                     <option value="Atsiri">Atsiri</option>
-                                                    <option value="Ayak">Ayak/option>
+                                                    <option value="Ayak">Ayak</option>
                                                     <option value="Bioetanol">Bioetanol</option>
                                                     <option value="Bioseptik">Bioseptik</option>
                                                     <option value="Boiler">Boiler</option>
