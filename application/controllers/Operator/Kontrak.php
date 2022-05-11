@@ -44,7 +44,7 @@ class Kontrak extends CI_Controller {
 			$kontrak 	 = $this->Kontrak_model->pilih($id_karyawan);
 
 			$valid = $this->form_validation;
-			$valid->set_rules('kt1','Kontrak 1','required', array('required'  => 'Kontrak harus di isi' ));
+			$valid->set_rules('kt1_1','Kontrak 1','required', array('required'  => 'Kontrak harus di isi' ));
 			if($valid->run()== FALSE){
 				
 				$data = array(
@@ -58,10 +58,18 @@ class Kontrak extends CI_Controller {
 				$i = $this->input;
 				$data = array('id_karyawan' => $id_karyawan,
 							'id_user'		=> $this->session->userdata('id_user'),
-							'kt1'			=> date('Y-m-d', strtotime($i->post('kt1'))),
-							'kt2'			=> date('Y-m-d', strtotime($i->post('kt2'))),
 							'kt1_1'			=> date('Y-m-d', strtotime($i->post('kt1_1'))),
-							'kt2_1'			=> date('Y-m-d', strtotime($i->post('kt2_1')))
+							'kt1_2'			=> date('Y-m-d', strtotime($i->post('kt1_2'))),
+							'kt2_1'			=> date('Y-m-d', strtotime($i->post('kt2_1'))),
+							'kt2_2'			=> date('Y-m-d', strtotime($i->post('kt2_2'))),
+							'kt3_1'			=> date('Y-m-d', strtotime($i->post('kt3_1'))),
+							'kt3_2'			=> date('Y-m-d', strtotime($i->post('kt3_2'))),
+							'kt4_1'			=> date('Y-m-d', strtotime($i->post('kt4_1'))),
+							'kt4_2'			=> date('Y-m-d', strtotime($i->post('kt4_2'))),
+							'kt5_1'			=> date('Y-m-d', strtotime($i->post('kt5_1'))),
+							'kt5_2'			=> date('Y-m-d', strtotime($i->post('kt5_2'))),
+							'kt6_1'			=> date('Y-m-d', strtotime($i->post('kt6_1'))),
+							'kt6_2'			=> date('Y-m-d', strtotime($i->post('kt6_2')))
 						);
 				$this->Kontrak_model->tambah($data);
 				$this->session->set_flashdata('success', '<b>Data Kontrak Telah di Tambah</b>');
@@ -82,7 +90,7 @@ class Kontrak extends CI_Controller {
 
 			$valid = $this->form_validation;
 
-			$valid->set_rules('kt2', 'Kontrak 2','required',
+			$valid->set_rules('kt1_1', 'Kontrak 2','required',
 						array('required' => 'Masukkan Kontrak1')); 
 
 			if($valid->run()==FALSE) {
@@ -98,10 +106,18 @@ class Kontrak extends CI_Controller {
 				$data = array('id_kontrak'	=> $id_kontrak,
 							'id_karyawan'  	=> $id_karyawan,
 							'id_user'		=> $this->session->userdata('id_user'),
-							'kt1'			=> date('Y-m-d', strtotime($i->post('kt1'))),
-							'kt2'			=> date('Y-m-d', strtotime($i->post('kt2'))),
 							'kt1_1'			=> date('Y-m-d', strtotime($i->post('kt1_1'))),
-							'kt2_1'			=> date('Y-m-d', strtotime($i->post('kt2_1')))
+							'kt1_2'			=> date('Y-m-d', strtotime($i->post('kt1_2'))),
+							'kt2_1'			=> date('Y-m-d', strtotime($i->post('kt2_1'))),
+							'kt2_2'			=> date('Y-m-d', strtotime($i->post('kt2_2'))),
+							'kt3_1'			=> date('Y-m-d', strtotime($i->post('kt3_1'))),
+							'kt3_2'			=> date('Y-m-d', strtotime($i->post('kt3_2'))),
+							'kt4_1'			=> date('Y-m-d', strtotime($i->post('kt4_1'))),
+							'kt4_2'			=> date('Y-m-d', strtotime($i->post('kt4_2'))),
+							'kt5_1'			=> date('Y-m-d', strtotime($i->post('kt5_1'))),
+							'kt5_2'			=> date('Y-m-d', strtotime($i->post('kt5_2'))),
+							'kt6_1'			=> date('Y-m-d', strtotime($i->post('kt6_1'))),
+							'kt6_2'			=> date('Y-m-d', strtotime($i->post('kt6_2')))
 						);
 				$this->Kontrak_model->edit($data);
 				$this->session->set_flashdata('success', '<b>Data Kontrak Telah di Edit</b>');
@@ -125,6 +141,40 @@ class Kontrak extends CI_Controller {
 			redirect('Login','refresh');
 		}	
 	}
+
+	public function laporan()
+    {
+      if($this->session->userdata('status') == TRUE){
+      	$kontrak  = $this->input->get('kontrak');
+      	$tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $kontrak1 = $this->Kontrak_model->getDataKontrak($tglawal, $tglakhir, $kontrak);
+				$data 	= array('title' 		=> 'Data Kontrak',
+												'kontrak1'	=> $kontrak1,
+												'kontrak'		=> $kontrak,
+												'tglawal'   => $tglawal,
+                      	'tglakhir'  => $tglakhir);
+				$data['page'] = 'operator/kontrak/laporan';
+				$this->load->view('operator/template', $data);
+			} else{
+				$this->session->set_flashdata('alert', '<b>Silahkan Login Terlebih Dahulu</b>');
+				redirect('Login','refresh');
+			}
+    }
+
+    public function export()
+    {
+        $kontrak  = $this->input->get('kontrak');
+      	$tglawal  = $this->input->get('tglawal');
+        $tglakhir = $this->input->get('tglakhir');
+        $kontrak1 = $this->Kontrak_model->getDataKontrak($tglawal, $tglakhir, $kontrak);
+				$data 	= array('title' 		=> 'Data Kontrak',
+												'kontrak1'	=> $kontrak1,
+												'kontrak'		=> $kontrak,
+												'tglawal'   => $tglawal,
+                      	'tglakhir'  => $tglakhir);
+        $this->load->view('operator/kontrak/cetak', $data);
+    }
 
 }
 

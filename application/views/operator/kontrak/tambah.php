@@ -1,4 +1,4 @@
-<div class="content-body" style="margin-bottom: -420px">
+<div class="content-body" style="margin-bottom: -280px">
   <div class="container-fluid">
     	<div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
@@ -16,35 +16,84 @@
         <div class="card">
         	<div class="card-body">
         		<div class="row">
-                <div class="col-md-6">
+                <div class="col-12">
                   <div class="form-group row">
-                        <label class="col-md-3 col-form-label" style="color: black">Kontrak 1</label>
-                         <div class="col-md-9 p-0 text-center">
-                           <input type="date" class="form-control" name="kt1" value="<?php echo set_value('kt1')?>">
-                         </div>
+                    <label class="col-md-3 col-form-label" style="color: black">Kontrak 1</label>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt1_1" value="<?php echo set_value('kt1_1')?>">
                       </div>
-
-                      <div class="form-group row">
-                        <label class="col-md-3 col-form-label" style="color: black">Kontrak 2</label>
-                         <div class="col-md-9 p-0 text-center">
-                           <input type="date" class="form-control" name="kt2" value="<?php echo set_value('kt2')?>">
-                         </div>
-                      </div>          
+                      <div class="col-md-1 p-0 text-center">
+                        <p style="color:black">s.d</p>
+                      </div>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt1_2" value="<?php echo set_value('kt1_2')?>">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" style="color: black">Kontrak 2</label>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt2_1" value="<?php echo set_value('kt2_1')?>">
+                      </div>
+                      <div class="col-md-1 p-0 text-center">
+                        <p style="color:black">s.d</p>
+                      </div>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt2_2" value="<?php echo set_value('kt2_2')?>">
+                      </div>
+                  </div>
                 </div>
-                <div class="col-6">
-                  <div class="form-group row">
-                        <label class="col-md-3 col-form-label" style="color: black">Kontrak 1</label>
-                         <div class="col-md-9 p-0 text-center">
-                           <input type="date" class="form-control" name="kt1_1" value="<?php echo set_value('kt1_1')?>">
-                         </div>
-                      </div>
 
-                      <div class="form-group row">
-                        <label class="col-md-3 col-form-label" style="color: black">Kontrak 2</label>
-                         <div class="col-md-9 p-0 text-center">
-                           <input type="date" class="form-control" name="kt2_1" value="<?php echo set_value('kt2_1')?>">
-                         </div>
+                <div class="col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" style="color: black">Kontrak 1</label>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt3_1" value="<?php echo set_value('kt3_1')?>">
                       </div>
+                      <div class="col-md-1 p-0 text-center">
+                        <p style="color:black">s.d</p>
+                      </div>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt3_2" value="<?php echo set_value('kt3_2')?>">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" style="color: black">Kontrak 2</label>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt4_1" value="<?php echo set_value('kt4_1')?>">
+                      </div>
+                      <div class="col-md-1 p-0 text-center">
+                        <p style="color:black">s.d</p>
+                      </div>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt4_2" value="<?php echo set_value('kt4_2')?>">
+                      </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" style="color: black">Kontrak 1</label>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt5_1" value="<?php echo set_value('kt5_1')?>">
+                      </div>
+                      <div class="col-md-1 p-0 text-center">
+                        <p style="color:black">s.d</p>
+                      </div>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt5_2" value="<?php echo set_value('kt5_2')?>">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" style="color: black">Kontrak 2</label>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt6_1" value="<?php echo set_value('kt6_1')?>">
+                      </div>
+                      <div class="col-md-1 p-0 text-center">
+                        <p style="color:black">s.d</p>
+                      </div>
+                      <div class="col-md-3 p-0 text-center">
+                        <input type="date" class="form-control" name="kt6_2" value="<?php echo set_value('kt6_2')?>">
+                      </div>
+                  </div>
                 </div>
                 <div class="col-md-12" style="text-align: center">
                     <input type="submit" name="submit" class="btn btn-primary" style="width: 80px" value="Simpan">&nbsp

@@ -50,6 +50,7 @@
                                             <a href="<?= base_url('Operator/Karyawan/exportExcel')?>" class="btn btn-secondary btn-sm">Export</a>
                                         <?php }?>  
                                     </div>
+                                </div>
                                </form>
                                 
                             </div>

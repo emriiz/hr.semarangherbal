@@ -68,14 +68,15 @@ class Cuti_model extends CI_Model {
 						 tbl_karyawan.nik,
 						 tbl_karyawan.nama,
 						 tbl_karyawan.jabatan');
-		$this->db->from('tbl_cuti');
-		$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_cuti.id_karyawan');
-		$this->db->where('tgl_awal >', $tglawal);
-    	$this->db->where('tgl_awal <', $tglakhir);
-		$this->db->order_by('id_karyawan','ASC');
-		$query = $this->db->get();
-		return $query->result_array();
-    	}
+			$this->db->from('tbl_cuti');
+			$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_cuti.id_karyawan');
+			$this->db->where('tgl_awal >', $tglawal);
+	    	$this->db->where('tgl_awal <', $tglakhir);
+			$this->db->order_by('id_karyawan','ASC');
+			$query = $this->db->get();
+			return $query->result_array();
+    		}
+
     	$this->db->select('tbl_cuti.*,
 						 tbl_karyawan.nik,
 						 tbl_karyawan.nama,

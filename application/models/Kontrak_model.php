@@ -67,6 +67,101 @@ class Kontrak_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
+
+	public function getDataKontrak($tglawal = null, $tglakhir = null, $kontrak = null)
+    {
+      	if($tglawal && $tglakhir && $kontrak == 'kt1_2'){
+    			$this->db->select('tbl_kontrak.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan,
+						 tbl_karyawan.tgl_join');
+			$this->db->from('tbl_kontrak');
+			$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_kontrak.id_karyawan');
+			$this->db->where('kt1_2 >', $tglawal);
+	    	$this->db->where('kt1_2 <', $tglakhir);
+			$this->db->order_by('id_karyawan','ASC');
+			$query = $this->db->get();
+			return $query->result_array();
+    		}else if($tglawal && $tglakhir && $kontrak == 'kt2_2'){
+    			$this->db->select('tbl_kontrak.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan,
+						 tbl_karyawan.tgl_join');
+			$this->db->from('tbl_kontrak');
+			$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_kontrak.id_karyawan');
+			$this->db->where('kt2_2 >', $tglawal);
+	    	$this->db->where('kt2_2 <', $tglakhir);
+			$this->db->order_by('id_karyawan','ASC');
+			$query = $this->db->get();
+			return $query->result_array();
+    		}
+    		else if($tglawal && $tglakhir && $kontrak == 'kt3_2'){
+    			$this->db->select('tbl_kontrak.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan,
+						 tbl_karyawan.tgl_join');
+			$this->db->from('tbl_kontrak');
+			$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_kontrak.id_karyawan');
+			$this->db->where('kt3_2 >', $tglawal);
+	    	$this->db->where('kt3_2 <', $tglakhir);
+			$this->db->order_by('id_karyawan','ASC');
+			$query = $this->db->get();
+			return $query->result_array();
+    		}else if($tglawal && $tglakhir && $kontrak == 'kt4_2'){
+    			$this->db->select('tbl_kontrak.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan,
+						 tbl_karyawan.tgl_join');
+			$this->db->from('tbl_kontrak');
+			$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_kontrak.id_karyawan');
+			$this->db->where('kt4_2 >', $tglawal);
+	    	$this->db->where('kt4_2 <', $tglakhir);
+			$this->db->order_by('id_karyawan','ASC');
+			$query = $this->db->get();
+			return $query->result_array();
+    		}else if($tglawal && $tglakhir && $kontrak == 'kt5_2'){
+    			$this->db->select('tbl_kontrak.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan,
+						 tbl_karyawan.tgl_join');
+			$this->db->from('tbl_kontrak');
+			$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_kontrak.id_karyawan');
+			$this->db->where('kt5_2 >', $tglawal);
+	    	$this->db->where('kt5_2 <', $tglakhir);
+			$this->db->order_by('id_karyawan','ASC');
+			$query = $this->db->get();
+			return $query->result_array();
+    		}else if($tglawal && $tglakhir && $kontrak == 'kt6_2'){
+    			$this->db->select('tbl_kontrak.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan,
+						 tbl_karyawan.tgl_join');
+			$this->db->from('tbl_kontrak');
+			$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_kontrak.id_karyawan');
+			$this->db->where('kt6_2 >', $tglawal);
+	    	$this->db->where('kt6_2 <', $tglakhir);
+			$this->db->order_by('id_karyawan','ASC');
+			$query = $this->db->get();
+			return $query->result_array();
+    		}
+
+    	$this->db->select('tbl_kontrak.*,
+						 tbl_karyawan.nik,
+						 tbl_karyawan.nama,
+						 tbl_karyawan.jabatan,
+						 tbl_karyawan.tgl_join');
+		$this->db->from('tbl_kontrak');
+		$this->db->join('tbl_karyawan','tbl_karyawan.id_karyawan = tbl_kontrak.id_karyawan');
+		$this->db->order_by('id_karyawan','ASC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }
 
 /* End of file Lembur_model.php */
